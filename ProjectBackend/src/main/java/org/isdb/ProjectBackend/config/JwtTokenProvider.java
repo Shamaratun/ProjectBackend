@@ -3,7 +3,7 @@ package org.isdb.ProjectBackend.config;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
-import org.isdb.email.model.CustomUserDetails;
+import org.isdb.ProjectBackend.model.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,6 @@ public class JwtTokenProvider {
 
     @Value("${app.jwt.expiration}")
     private int jwtExpirationMs;
-
 
     public String createToken(Authentication authentication) {
         CustomUserDetails userPrincipal = (CustomUserDetails) authentication.getPrincipal();

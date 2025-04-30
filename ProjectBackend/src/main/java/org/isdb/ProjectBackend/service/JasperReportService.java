@@ -1,5 +1,10 @@
 package org.isdb.ProjectBackend.service;
+import net.sf.jasperreports.engine.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -7,30 +12,22 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Service;
-
-import net.sf.jasperreports.engine.*;
-
 @Service
 public class JasperReportService {
 
-	@Autowired
-	private DataSource dataSource;
+    @Autowired
+    private DataSource dataSource;
 
-	public byte[] generateEmployeeReport() throws JRException, SQLException, IOException {
-		ClassPathResource resource = new ClassPathResource("/reports/Blank_A4_a.jrxmljrxml");
-		InputStream reportStream = resource.getInputStream();
+    public byte[] generateEmployeeReport() throws JRException, SQLException, IOException {
+        ClassPathResource resource = new ClassPathResource("/reports/Blank_A4_a.jrxmljrxml");
+        InputStream reportStream = resource.getInputStream();
 
-		JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
 
-		try (Connection conn = dataSource.getConnection()) {
-			Map<String, Object> parameters = new HashMap<>();
-			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn);
-			return JasperExportManager.exportReportToPdf(jasperPrint);
-		}
-	}
+        try (Connection conn = dataSource.getConnection()) {
+            Map<String, Object> parameters = new HashMap<>();
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn);
+            return JasperExportManager.exportReportToPdf(jasperPrint);
+        }
+    }
 }

@@ -1,7 +1,7 @@
 package org.isdb.ProjectBackend.validator;
 
-import org.isdb.email.annotation.ValidRole;
-import org.isdb.email.constants.Role;
+import org.isdb.ProjectBackend.annotation.ValidRole;
+import org.isdb.ProjectBackend.constants.Role;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

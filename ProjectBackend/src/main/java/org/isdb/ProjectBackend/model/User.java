@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.isdb.email.constants.Role;
+import org.isdb.ProjectBackend.constants.Role;
 
 import java.time.LocalDateTime;
 
@@ -20,7 +20,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String username;
+    private String fullname;
+    
     @Column(unique = true, nullable = false)
     private String email;
 
@@ -32,8 +34,8 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    private String firstName;
-    private String lastName;
+    private String address;
+    private Integer nid;
     private String phoneNumber;
 
     @Column(name = "created_at")
@@ -42,12 +44,13 @@ public class User {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public User(String email, String password, Role student, String firstName, String lastName, String phoneNumber) {
-        this.email = email;
+    public User( String fullname,String email, String password, Role customer, String address,Integer nid, String phoneNumber) {
+        this.fullname=fullname;
+    	this.email = email;
         this.password = password;
-        this.role = student;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.role = customer;
+        this.address = address;
+        this.nid = nid;
         this.phoneNumber = phoneNumber;
     }
 
@@ -61,4 +64,7 @@ public class User {
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
+  
+
+	
 }

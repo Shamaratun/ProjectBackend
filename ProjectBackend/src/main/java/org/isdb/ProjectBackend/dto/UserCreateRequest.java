@@ -4,12 +4,12 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.isdb.email.constants.Role;
+import org.isdb.ProjectBackend.constants.Role;
 
 public record UserCreateRequest(
-        @NotBlank(message = "Username cannot be blank")
-        @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")
-        String username,
+        @NotBlank(message = "Users fullName cannot be blank")
+        @Size(min = 3, max = 20, message = "Users fullName must be between 3 and 20 characters")
+        String fullName,
 
         @NotBlank(message = "Email cannot be blank")
         @Email(message = "Email should be valid")
@@ -21,9 +21,12 @@ public record UserCreateRequest(
 
         @NotNull(message = "Role cannot be null")
         Role role,
-
-        String firstName,
-        String lastName,
+     
+     
+    
+       
+        String address,
+        Integer nid,
         String phoneNumber
-) {
-}
+    ) {}
+
