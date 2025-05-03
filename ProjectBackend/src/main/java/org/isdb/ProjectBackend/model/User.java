@@ -1,5 +1,7 @@
 package org.isdb.ProjectBackend.model;
 
+import java.time.LocalDateTime;
+
 import org.isdb.ProjectBackend.constants.Role;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,6 +13,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,6 +50,11 @@ public class User {
 	private String address;
 	private Long nid;
 	private String phoneNumber;
+	@Column(name = "created_at")
+	private LocalDateTime createdAt;
+
+	@Column(name = "updated_at")
+	private LocalDateTime updatedAt;
 
 	public User(String email, String password, Role role, String address, Long nid, String phoneNumber, String fullname,
 			String username) {
@@ -57,5 +66,16 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.fullName = fullname;
 		this.username = username;
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		createdAt = LocalDateTime.now();
+		updatedAt = LocalDateTime.now();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		updatedAt = LocalDateTime.now();
 	}
 }

@@ -1,5 +1,7 @@
 package org.isdb.ProjectBackend.dto;
 
+import java.time.LocalDateTime;
+
 import org.isdb.ProjectBackend.constants.Role;
 
 import lombok.Getter;
@@ -17,7 +19,7 @@ public class UserResponse {
 	private String phoneNumber;
 	private String fullName;
 	private String username;
-//	private LocalDateTime createdAt;
-//	private LocalDateTime updatedAt;
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 
 }
