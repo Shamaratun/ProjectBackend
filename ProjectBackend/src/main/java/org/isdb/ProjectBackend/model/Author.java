@@ -20,5 +20,5 @@ public class Author {
 	private Date dob;
 
 	@OneToMany(mappedBy = "author")
-	private List<Books> books;
+	private List<Book> books;
 }
