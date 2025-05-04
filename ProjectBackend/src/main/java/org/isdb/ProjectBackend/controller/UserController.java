@@ -5,10 +5,10 @@ import java.util.stream.Collectors;
 
 import org.isdb.ProjectBackend.annotation.CurrentUser;
 import org.isdb.ProjectBackend.constants.Role;
-import org.isdb.ProjectBackend.dto.PasswordChangeRequest;
-import org.isdb.ProjectBackend.dto.UserCreateRequest;
-import org.isdb.ProjectBackend.dto.UserResponse;
-import org.isdb.ProjectBackend.dto.UserUpdateRequest;
+import org.isdb.ProjectBackend.dto.login.PasswordChangeRequest;
+import org.isdb.ProjectBackend.dto.login.UserCreateRequest;
+import org.isdb.ProjectBackend.dto.login.UserResponse;
+import org.isdb.ProjectBackend.dto.login.UserUpdateRequest;
 import org.isdb.ProjectBackend.model.User;
 import org.isdb.ProjectBackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

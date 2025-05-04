@@ -1,7 +1,7 @@
 package org.isdb.ProjectBackend.handler;
 
-import org.isdb.ProjectBackend.dto.ErrorResponse;
-import org.isdb.ProjectBackend.dto.FieldError;
+import org.isdb.ProjectBackend.dto.login.ErrorResponse;
+import org.isdb.ProjectBackend.dto.login.FieldError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

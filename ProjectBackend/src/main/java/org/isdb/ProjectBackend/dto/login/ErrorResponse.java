@@ -1,4 +1,4 @@
-package org.isdb.ProjectBackend.dto;
+package org.isdb.ProjectBackend.dto.login;
 
 import java.util.List;
 

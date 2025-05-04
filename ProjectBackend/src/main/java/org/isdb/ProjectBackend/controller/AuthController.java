@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.isdb.ProjectBackend.config.JwtTokenProvider;
-import org.isdb.ProjectBackend.dto.LoginRequest;
-import org.isdb.ProjectBackend.dto.RegisterRequest;
-import org.isdb.ProjectBackend.dto.UserResponse;
+import org.isdb.ProjectBackend.dto.login.LoginRequest;
+import org.isdb.ProjectBackend.dto.login.RegisterRequest;
+import org.isdb.ProjectBackend.dto.login.UserResponse;
 import org.isdb.ProjectBackend.model.CustomUserDetails;
 import org.isdb.ProjectBackend.model.User;
 import org.isdb.ProjectBackend.service.UserService;
@@ -67,7 +67,9 @@ public class AuthController {
 			userResponse.setPhoneNumber(savedUser.getPhoneNumber());
 			userResponse.setFullName(savedUser.getFullName());
 			userResponse.setUsername(savedUser.getUsername());
-
+			userResponse.setCreatedAt(savedUser.getCreatedAt());
+			userResponse.setUpdatedAt(savedUser.getUpdatedAt());
+		
 			return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
 		} catch (RuntimeException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
