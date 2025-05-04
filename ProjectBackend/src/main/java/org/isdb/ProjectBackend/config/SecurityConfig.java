@@ -55,7 +55,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtTokenProvider jwtTokenProvider)
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, 
+    		JwtTokenProvider jwtTokenProvider)
             throws Exception {
         http
                 .cors(Customizer.withDefaults())
@@ -63,7 +64,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/public/**").permitAll()
-                        .requestMatchers("/api/user/**").hasAnyRole("REGULAR_USER", "MANAGER", "ADMIN")
+//                        .requestMatchers("/api/user/**").hasAnyRole("REGULAR_USER", "MANAGER", "ADMIN")
                         .requestMatchers("/api/manager/**").hasAnyRole("MANAGER", "ADMIN")
                         .requestMatchers("/api/user/**").hasAnyRole("VIEWER", "CUSTOMER", "ADMIN")
                         .requestMatchers("/api/customer/**").hasAnyRole("CUSTOMER", "VIEWER")

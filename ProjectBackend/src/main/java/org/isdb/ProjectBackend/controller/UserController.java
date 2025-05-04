@@ -156,7 +156,7 @@ public class UserController {
 		dto.setNid(user.getNid());
 		dto.setPhoneNumber(user.getPhoneNumber());
 		dto.setCreatedAt(user.getCreatedAt());
-		dto.setUpdatedAt(user.getUpdatedAt());
+		dto.setUpdatedAt(user.getCreatedAt());
 		return dto;
 	}
 }

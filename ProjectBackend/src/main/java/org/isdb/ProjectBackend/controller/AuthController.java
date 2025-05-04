@@ -39,7 +39,8 @@ public class AuthController {
 	private final JwtTokenProvider jwtTokenProvider;
 	private final UserService userService;
 
-	public AuthController(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider,
+	public AuthController(AuthenticationManager authenticationManager,
+			JwtTokenProvider jwtTokenProvider,
 			UserService userService) {
 		this.authenticationManager = authenticationManager;
 		this.jwtTokenProvider = jwtTokenProvider;
@@ -47,7 +48,8 @@ public class AuthController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
+	public ResponseEntity<?> registerUser(
+			@Valid @RequestBody RegisterRequest registerRequest) {
 		try {
 			User user = new User(registerRequest.email(), registerRequest.password(), registerRequest.role(),
 					registerRequest.address(), registerRequest.nid(), registerRequest.phoneNumber(),
