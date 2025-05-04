@@ -1,4 +1,4 @@
-package org.isdb.ProjectBackend.controller;
+package org.isdb.ProjectBackend.controller.login.log;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;

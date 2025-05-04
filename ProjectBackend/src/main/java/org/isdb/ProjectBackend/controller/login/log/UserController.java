@@ -1,4 +1,4 @@
-package org.isdb.ProjectBackend.controller;
+package org.isdb.ProjectBackend.controller.login.log;
 
 import java.util.List;
 import java.util.stream.Collectors;

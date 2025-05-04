@@ -1,4 +1,4 @@
-package org.isdb.ProjectBackend.controller;
+package org.isdb.ProjectBackend.controller.login.log;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
