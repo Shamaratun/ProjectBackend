@@ -56,6 +56,7 @@ public class User {
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
 
+	    
 	public User(String email, String password, Role role, String address, Long nid, String phoneNumber, String fullname,
 			String username) {
 		this.email = email;
@@ -68,14 +69,4 @@ public class User {
 		this.username = username;
 	}
 
-	@PrePersist
-	protected void onCreate() {
-		createdAt = LocalDateTime.now();
-		updatedAt = LocalDateTime.now();
-	}
-
-	@PreUpdate
-	protected void onUpdate() {
-		updatedAt = LocalDateTime.now();
-	}
 }

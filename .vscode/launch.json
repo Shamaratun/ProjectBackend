@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProjectBackendApplication<ProjectBackend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.isdb.ProjectBackend.ProjectBackendApplication",
+            "projectName": "ProjectBackend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
