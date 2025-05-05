@@ -1,6 +1,7 @@
 package org.isdb.ProjectBackend.service;
 
 import org.isdb.ProjectBackend.model.Author;
+import org.isdb.ProjectBackend.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

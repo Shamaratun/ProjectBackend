@@ -19,6 +19,6 @@ public class Wishlist {
 	@JoinColumn(name = "userID")
 	private User user;
 
-	@OneToMany(mappedBy = "wishlist")
-	private List<WishlistItem> items;
-}
+// 	@OneToMany(mappedBy = "wishlist")
+// 	private List<WishlistItem> items;
+// }
