@@ -6,24 +6,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Shipping")
-public class Shipping {
+@Table(name = "OrderItem")
+public class OrderItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Integer shippingID;
+	private Integer orderItemID;
 
-	private String address;
-	private String city;
-	private String country;
-	private String deliveryMethod;
-	private String estimatedDeliveryTime;
-	private BigDecimal shippingCost;
+	private Integer quantity;
+	private BigDecimal price;
 
-	@OneToOne(mappedBy = "shipping")
+	@ManyToOne
+	@JoinColumn(name = "orderID")
 	private Order order;
+
+	@ManyToOne
+	@JoinColumn(name = "bookID")
+	private Books book;
 }

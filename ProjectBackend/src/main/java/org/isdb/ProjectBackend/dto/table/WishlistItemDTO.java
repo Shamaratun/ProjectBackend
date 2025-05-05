@@ -1,6 +1,6 @@
 package org.isdb.ProjectBackend.dto.table;
 
-import java.util.Date;
+import org.isdb.ProjectBackend.model.WishlistItem;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,11 +11,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorDTO {
-	private Integer authorID;
-	private String name;
-	private String bio;
-	private String country;
-	private Date dob;
+public class WishlistItemDTO {
+
+	private Integer wishlistItemID;
+	private Integer wishlistID;
+	private Integer bookID;
+	
 
 }

@@ -1,8 +1,5 @@
 package org.isdb.ProjectBackend.model;
 
-import java.awt.print.Book;
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,22 +8,22 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+//CartItem.java
 @Entity
-@Table(name = "Review")
-public class Review {
+@Table(name = "CartItem")
+public class CartItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer reviewID;
 
-	private Integer rating;
-	private String comment;
-	private LocalDateTime reviewDate;
+	private Integer cartItemID;
+
+	private Integer quantity;
 
 	@ManyToOne
-	@JoinColumn(name = "userID")
-	private User user;
+	@JoinColumn(name = "cartID")
+	private Cart cart;
 
 	@ManyToOne
 	@JoinColumn(name = "bookID")
-	private Book book;
+	private Books book;
 }

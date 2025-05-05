@@ -1,5 +1,6 @@
 package org.isdb.ProjectBackend.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -10,30 +11,22 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+//Cart.java
 @Entity
-@Table(name = "Wishlist")
-public class Wishlist {
+@Table(name = "Cart")
+public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Integer wishlistID;
+	private Integer cartID;
+
+	private LocalDateTime createdDate;
 
 	@ManyToOne
 	@JoinColumn(name = "userID")
 	private User user;
 
-	// @OneToMany(mappedBy = "wishlist")
-	// private List<WishlistItem> items;
-
-	
+	@OneToMany(mappedBy = "cart")
+	private List<CartItem> items;
 }

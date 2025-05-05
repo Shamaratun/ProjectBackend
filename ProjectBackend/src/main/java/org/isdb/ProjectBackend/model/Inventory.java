@@ -13,6 +13,8 @@
 //@Table(name = "Inventory")
 //public class Inventory {
 //	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+
 //	private Integer inventoryID;
 //
 //	private Integer quantity;

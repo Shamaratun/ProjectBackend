@@ -3,12 +3,11 @@ package org.isdb.ProjectBackend.model;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -19,6 +18,7 @@ public class Books {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bookID;
+
 	@Column(nullable = false, length = 100)
 	private String title;
 
@@ -43,7 +43,7 @@ public class Books {
 	private Timestamp updatedAt;
 
 	@ManyToOne
-	@JoinColumn(name = "authorID", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "authorID", referencedColumnName = "authorID", nullable = false)
 	private Author author;
 
 //	@ManyToOne
