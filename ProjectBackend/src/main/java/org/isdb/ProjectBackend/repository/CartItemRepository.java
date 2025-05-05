@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CartItemRepository extends JpaRepository<CartItem, Integer> {
-	// You can add custom query methods here if needed
+    // You can add custom query methods here if needed
 }

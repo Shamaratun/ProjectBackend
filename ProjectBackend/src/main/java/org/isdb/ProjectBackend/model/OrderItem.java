@@ -1,31 +1,25 @@
 package org.isdb.ProjectBackend.model;
 
-import java.math.BigDecimal;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "OrderItem")
 public class OrderItem {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Integer orderItemID;
+    private Integer orderItemID;
 
-	private Integer quantity;
-	private BigDecimal price;
+    private Integer quantity;
+    private BigDecimal price;
 
-	@ManyToOne
-	@JoinColumn(name = "orderID")
-	private Order order;
+    @ManyToOne
+    @JoinColumn(name = "orderID")
+    private Order order;
 
-	@ManyToOne
-	@JoinColumn(name = "bookID")
-	private Books book;
+    @ManyToOne
+    @JoinColumn(name = "bookID")
+    private Books book;
 }

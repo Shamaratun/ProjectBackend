@@ -11,9 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CartItemDTO {
 
-	private Integer cartItemID;
-	private Integer quantity;
-	private Integer cartID; // Assuming Cart has getCartID() method
-	private Integer bookID; // Assuming Books has getBookID() method
+    private Integer cartItemID;
+    private Integer quantity;
+    private Integer cartID; // Assuming Cart has getCartID() method
+    private Integer bookID; // Assuming Books has getBookID() method
 
 }

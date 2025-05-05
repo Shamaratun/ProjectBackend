@@ -1,8 +1,6 @@
 package org.isdb.ProjectBackend.controller.login.log;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import jakarta.validation.Valid;
 import org.isdb.ProjectBackend.annotation.CurrentUser;
 import org.isdb.ProjectBackend.constants.Role;
 import org.isdb.ProjectBackend.dto.login.PasswordChangeRequest;
@@ -18,145 +16,139 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
-	private final UserService userService;
+    private final UserService userService;
 
-	@Autowired
-	public UserController(UserService userService) {
-		this.userService = userService;
-	}
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
-	@GetMapping("/user")
-	public UserDetails user(@CurrentUser UserDetails currentUser) {
-		return currentUser;
-	}
+    @GetMapping("/user")
+    public UserDetails user(@CurrentUser UserDetails currentUser) {
+        return currentUser;
+    }
 
-	@GetMapping
-	@PreAuthorize("hasRole('ADMIN')")
-	public List<UserResponse> getAllUsers() {
-		return userService.getAllUsers().stream().map(this::convertToDTO).collect(Collectors.toList());
-	}
+    @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<UserResponse> getAllUsers() {
+        return userService.getAllUsers().stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
 
-	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN') or @userSecurity.hasUserId(authentication, #id)")
-	public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
-		return userService.getUserById(id).map(user -> ResponseEntity.ok(convertToDTO(user)))
-				.orElse(ResponseEntity.notFound().build());
-	}
+    @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN') or @userSecurity.hasUserId(authentication, #id)")
+    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+        return userService.getUserById(id).map(user -> ResponseEntity.ok(convertToDTO(user)))
+                .orElse(ResponseEntity.notFound().build());
+    }
 
-	@GetMapping("/role/{role}")
-	@PreAuthorize("hasRole('ADMIN')")
-	public List<UserResponse> getUsersByRole(@PathVariable Role role) {
-		return userService.getUsersByRole(role).stream().map(this::convertToDTO).collect(Collectors.toList());
-	}
+    @GetMapping("/role/{role}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<UserResponse> getUsersByRole(@PathVariable Role role) {
+        return userService.getUsersByRole(role).stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
 
-	@PostMapping
-	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserCreateRequest userCreateRequest) {
-		try {
-			User newUser = new User();
-			newUser.setFullName(userCreateRequest.fullName());
-			newUser.setEmail(userCreateRequest.email());
-			newUser.setPhoneNumber(userCreateRequest.phoneNumber());
-			newUser.setAddress(userCreateRequest.address());
-			newUser.setNid(userCreateRequest.nid());
-			newUser.setPassword(userCreateRequest.password()); // Should be encoded inside service
-			newUser.setRole(userCreateRequest.role());
+    @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserCreateRequest userCreateRequest) {
+        try {
+            User newUser = new User();
+            newUser.setFullName(userCreateRequest.fullName());
+            newUser.setEmail(userCreateRequest.email());
+            newUser.setPhoneNumber(userCreateRequest.phoneNumber());
+            newUser.setAddress(userCreateRequest.address());
+            newUser.setNid(userCreateRequest.nid());
+            newUser.setPassword(userCreateRequest.password()); // Should be encoded inside service
+            newUser.setRole(userCreateRequest.role());
 
-			User createdUser = userService.createUser(newUser);
-			return new ResponseEntity<>(convertToDTO(createdUser), HttpStatus.CREATED);
-		} catch (RuntimeException e) {
-			return ResponseEntity.badRequest().body(null);
-		}
-	}
+            User createdUser = userService.createUser(newUser);
+            return new ResponseEntity<>(convertToDTO(createdUser), HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 
-	@PutMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN') or @userSecurity.hasUserId(authentication, #id)")
-	public ResponseEntity<UserResponse> updateUser(@PathVariable Long id,
-			@Valid @RequestBody UserUpdateRequest userUpdateRequest) {
-		try {
-			User userDetails = new User();
-			userDetails.setFullName(userUpdateRequest.fullName());
-			userDetails.setAddress(userUpdateRequest.address());
-			userDetails.setNid(userUpdateRequest.nid());
-			userDetails.setEmail(userUpdateRequest.email());
-			userDetails.setPhoneNumber(userUpdateRequest.phoneNumber());
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN') or @userSecurity.hasUserId(authentication, #id)")
+    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id,
+                                                   @Valid @RequestBody UserUpdateRequest userUpdateRequest) {
+        try {
+            User userDetails = new User();
+            userDetails.setFullName(userUpdateRequest.fullName());
+            userDetails.setAddress(userUpdateRequest.address());
+            userDetails.setNid(userUpdateRequest.nid());
+            userDetails.setEmail(userUpdateRequest.email());
+            userDetails.setPhoneNumber(userUpdateRequest.phoneNumber());
 
-			// Only admin can update roles
-			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-			if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
-				userDetails.setRole(userUpdateRequest.role());
-			}
+            // Only admin can update roles
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
+                userDetails.setRole(userUpdateRequest.role());
+            }
 
-			User updatedUser = userService.updateUser(id, userDetails);
-			return ResponseEntity.ok(convertToDTO(updatedUser));
-		} catch (RuntimeException e) {
-			return ResponseEntity.badRequest().build();
-		}
-	}
+            User updatedUser = userService.updateUser(id, userDetails);
+            return ResponseEntity.ok(convertToDTO(updatedUser));
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
-	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> deleteUser(@PathVariable Long id) {
-		try {
-			userService.deleteUser(id);
-			return ResponseEntity.ok().build();
-		} catch (RuntimeException e) {
-			return ResponseEntity.notFound().build();
-		}
-	}
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
-	@GetMapping("/me")
-	public ResponseEntity<UserResponse> getCurrentUser(Authentication authentication) {
-		User currentUser = userService.getCurrentUser(authentication);
-		if (currentUser == null) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-		}
-		return ResponseEntity.ok(convertToDTO(currentUser));
-	}
+    @GetMapping("/me")
+    public ResponseEntity<UserResponse> getCurrentUser(Authentication authentication) {
+        User currentUser = userService.getCurrentUser(authentication);
+        if (currentUser == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return ResponseEntity.ok(convertToDTO(currentUser));
+    }
 
-	@PostMapping("/change-password")
-	public ResponseEntity<?> changePassword(Authentication authentication,
-			@Valid @RequestBody PasswordChangeRequest request) {
-		try {
-			User currentUser = userService.getCurrentUser(authentication);
-			if (currentUser == null) {
-				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-			}
+    @PostMapping("/change-password")
+    public ResponseEntity<?> changePassword(Authentication authentication,
+                                            @Valid @RequestBody PasswordChangeRequest request) {
+        try {
+            User currentUser = userService.getCurrentUser(authentication);
+            if (currentUser == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            }
 
-			userService.changePassword(currentUser.getId(), request.currentPassword(), request.newPassword());
+            userService.changePassword(currentUser.getId(), request.currentPassword(), request.newPassword());
 
-			return ResponseEntity.ok().build();
-		} catch (RuntimeException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
-		}
-	}
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
-	// Helper method to convert User entity to UserDTO
-	private UserResponse convertToDTO(User user) {
-		UserResponse dto = new UserResponse();
-		dto.setId(user.getId());
-		dto.setEmail(user.getEmail());
-		dto.setRole(user.getRole());
-		dto.setAddress(user.getAddress());
-		dto.setNid(user.getNid());
-		dto.setPhoneNumber(user.getPhoneNumber());
-		dto.setCreatedAt(user.getCreatedAt());
-		dto.setUpdatedAt(user.getCreatedAt());
-		return dto;
-	}
+    // Helper method to convert User entity to UserDTO
+    private UserResponse convertToDTO(User user) {
+        UserResponse dto = new UserResponse();
+        dto.setId(user.getId());
+        dto.setEmail(user.getEmail());
+        dto.setRole(user.getRole());
+        dto.setAddress(user.getAddress());
+        dto.setNid(user.getNid());
+        dto.setPhoneNumber(user.getPhoneNumber());
+        dto.setCreatedAt(user.getCreatedAt());
+        dto.setUpdatedAt(user.getCreatedAt());
+        return dto;
+    }
 }

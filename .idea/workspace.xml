@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/ProjectBackend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/ProjectBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/ProjectBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/annotation/ValidRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/annotation/ValidRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/constants/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/constants/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/JasperReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/JasperReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/log/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/AuthorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/CartItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/CartItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/DiscountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/DiscountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/ShippingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/ShippingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/FieldError.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/FieldError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/PasswordChangeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/PasswordChangeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/UserCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/UserCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/UserUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/login/UserUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/AuthorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/AuthorDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/BookDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/CartDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/CartDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/CartItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/CartItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/DiscountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/DiscountDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/WarehouseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/WarehouseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/WishlistItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/WishlistItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/BookDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/BookDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Discount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Shipping.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Shipping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/WishlistItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/WishlistItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/CartItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/CartItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/CartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/DiscountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/DiscountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/ShippingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/ShippingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/WishlistItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/repository/WishlistItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/BooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/BooksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/CartItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/CartItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/DiscountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/DiscountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/JasperReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/JasperReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/ShippingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/ShippingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/validator/RoleValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/validator/RoleValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/test/java/org/isdb/ProjectBackend/ProjectBackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/test/java/org/isdb/ProjectBackend/ProjectBackendApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "nafiuzzamanparves"
+  }
+}]]></component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="table" />
+                    <option name="lastUsedInstant" value="1746424002" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1746424001" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Shamaratun/ProjectBackend.git",
+    "accountId": "52b21941-cd23-4984-b718-90d761b4f1aa"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2wfDxofoHA4JSUlEIp047biPNFa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Maven.ProjectBackend [clean].executor": "Run",
+    "Maven.ProjectBackend [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "table"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="" />
+      <created>1746423984070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746423984070</updated>
+    </task>
+    <servers />
+  </component>
+</project>

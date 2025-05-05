@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShippingRepository extends JpaRepository<Shipping, Integer> {
-	// You can add custom queries here if needed
+    // You can add custom queries here if needed
 }

@@ -1,29 +1,24 @@
 package org.isdb.ProjectBackend.model;
 
-import java.math.BigDecimal;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "Shipping")
 public class Shipping {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Integer shippingID;
+    private Integer shippingID;
 
-	private String address;
-	private String city;
-	private String country;
-	private String deliveryMethod;
-	private String estimatedDeliveryTime;
-	private BigDecimal shippingCost;
+    private String address;
+    private String city;
+    private String country;
+    private String deliveryMethod;
+    private String estimatedDeliveryTime;
+    private BigDecimal shippingCost;
 
-	@OneToOne(mappedBy = "shipping")
-	private Order order;
+    @OneToOne(mappedBy = "shipping")
+    private Order order;
 }

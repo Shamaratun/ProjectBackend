@@ -1,22 +1,21 @@
 package org.isdb.ProjectBackend.annotation;
 
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
+import org.isdb.ProjectBackend.validator.RoleValidator;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.isdb.ProjectBackend.validator.RoleValidator;
-
-import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
-
-@Target({ ElementType.FIELD, ElementType.PARAMETER })
+@Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = RoleValidator.class)
 public @interface ValidRole {
-	String message() default "Invalid role";
+    String message() default "Invalid role";
 
-	Class<?>[] groups() default {};
+    Class<?>[] groups() default {};
 
-	Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 }

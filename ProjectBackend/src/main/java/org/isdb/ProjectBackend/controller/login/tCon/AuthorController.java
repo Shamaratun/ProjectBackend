@@ -34,7 +34,7 @@ public class AuthorController {
     public ResponseEntity<Author> getAuthorById(@PathVariable Integer id) {
         Optional<Author> author = authorService.getAuthorById(id);
         return author.map(ResponseEntity::ok)
-                     .orElse(ResponseEntity.notFound().build());
+                .orElse(ResponseEntity.notFound().build());
     }
 
     // Update an author
