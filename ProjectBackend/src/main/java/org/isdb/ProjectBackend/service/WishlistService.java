@@ -1,5 +1,4 @@
 package org.isdb.ProjectBackend.service;
-
 import org.isdb.ProjectBackend.model.Wishlist;
 import org.isdb.ProjectBackend.repository.WishlistRepository;
 import org.springframework.beans.factory.annotation.Autowired;

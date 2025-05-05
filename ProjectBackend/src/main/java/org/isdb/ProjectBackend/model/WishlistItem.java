@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 @Table(name = "WishlistItem")
 public class WishlistItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer wishlistItemID;
 
     @ManyToOne

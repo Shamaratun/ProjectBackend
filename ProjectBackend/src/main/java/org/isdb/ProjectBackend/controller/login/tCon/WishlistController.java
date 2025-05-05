@@ -30,7 +30,7 @@ public class WishlistController {
     public ResponseEntity<Wishlist> getWishlistById(@PathVariable Integer id) {
         Optional<Wishlist> wishlist = wishlistService.getWishlistById(id);
         return wishlist.map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                       .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")

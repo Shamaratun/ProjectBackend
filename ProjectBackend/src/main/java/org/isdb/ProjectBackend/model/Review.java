@@ -1,30 +1,35 @@
 package org.isdb.ProjectBackend.model;
 
-import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.awt.print.Book;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "Review")
 public class Review {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer reviewID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer reviewID;
 
-    private Integer rating;
-    private String comment;
-    private LocalDateTime reviewDate;
+	private Integer rating;
+	private String comment;
+	private LocalDateTime reviewDate;
 
-    @ManyToOne
-    @JoinColumn(name = "userID")
-    private User user;
+	@ManyToOne
+	@JoinColumn(name = "userID")
+	private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "bookID")
-    private Book book;
+	@ManyToOne
+	@JoinColumn(name = "bookID")
+	private Books book;
 }
