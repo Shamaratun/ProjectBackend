@@ -1,31 +1,32 @@
-// package org.isdb.ProjectBackend.service;
-// import org.isdb.ProjectBackend.model.Books;
-// import org.isdb.ProjectBackend.repository.BooksRepository;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.stereotype.Service;
+package org.isdb.ProjectBackend.service;
 
-// import java.util.List;
-// import java.util.Optional;
+import java.util.List;
+import java.util.Optional;
 
-// @Service
-// public class BooksService {
+import org.isdb.ProjectBackend.model.Books;
+import org.isdb.ProjectBackend.repository.BooksRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-//     @Autowired
-//     private BooksRepository booksRepository;
+@Service
+public class BooksService {
 
-//     public Books saveBook(Books book) {
-//         return booksRepository.save(book);
-//     }
+	@Autowired
+	private BooksRepository booksRepository;
 
-//     public List<Books> getAllBooks() {
-//         return booksRepository.findAll();
-//     }
+	public Books saveBook(Books book) {
+		return booksRepository.save(book);
+	}
 
-//     public Optional<Books> getBookById(Integer id) {
-//         return booksRepository.findById(id);
-//     }
+	public List<Books> getAllBooks() {
+		return booksRepository.findAll();
+	}
 
-//     public void deleteBook(Integer id) {
-//         booksRepository.deleteById(id);
-//     }
-// }
+	public Optional<Books> getBookById(Integer id) {
+		return booksRepository.findById(id);
+	}
+
+	public void deleteBook(Integer id) {
+		booksRepository.deleteById(id);
+	}
+}

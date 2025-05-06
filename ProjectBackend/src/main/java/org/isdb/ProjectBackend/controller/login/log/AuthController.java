@@ -39,8 +39,7 @@ public class AuthController {
 	private final JwtTokenProvider jwtTokenProvider;
 	private final UserService userService;
 
-	public AuthController(AuthenticationManager authenticationManager,
-			JwtTokenProvider jwtTokenProvider,
+	public AuthController(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider,
 			UserService userService) {
 		this.authenticationManager = authenticationManager;
 		this.jwtTokenProvider = jwtTokenProvider;
@@ -48,8 +47,7 @@ public class AuthController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<?> registerUser(
-			@Valid @RequestBody RegisterRequest registerRequest) {
+	public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
 		try {
 			User user = new User(registerRequest.email(), registerRequest.password(), registerRequest.role(),
 					registerRequest.address(), registerRequest.nid(), registerRequest.phoneNumber(),
@@ -71,7 +69,7 @@ public class AuthController {
 			userResponse.setUsername(savedUser.getUsername());
 			userResponse.setCreatedAt(savedUser.getCreatedAt());
 			userResponse.setUpdatedAt(savedUser.getUpdatedAt());
-		
+
 			return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
 		} catch (RuntimeException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
@@ -80,7 +78,7 @@ public class AuthController {
 
 	@PostMapping("/login")
 	public ResponseEntity<?> authenticateUser(HttpServletRequest request, HttpServletResponse response,
-			@Valid @RequestBody LoginRequest loginRequest) {
+			@RequestBody LoginRequest loginRequest) {
 		try {
 			Authentication authentication = authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(loginRequest.email(), loginRequest.password()));

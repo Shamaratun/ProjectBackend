@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/AuthorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/BookDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/BookDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/BookDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/BooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/BooksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nafiuzzamanparves&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="table" />
+                    <option name="lastUsedInstant" value="1746424002" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1746424001" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Shamaratun/ProjectBackend.git",
+    "accountId": "a06c2025-3dcb-4ad6-8a67-9bd27eaacaa4"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2wfDxofoHA4JSUlEIp047biPNFa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Maven.ProjectBackend [clean].executor": "Run",
+    "Maven.ProjectBackend [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "table",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="" />
+      <created>1746423984070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746423984070</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+</project>
