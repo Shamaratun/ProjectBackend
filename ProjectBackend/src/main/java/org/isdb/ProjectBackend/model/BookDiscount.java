@@ -11,17 +11,18 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "BookDiscount")
 public class BookDiscount {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private BookDiscount id;
+	private Long id; // ✅ Use Long or Integer instead of BookDiscount
 
 	@ManyToOne
-//	@MapsId("bookID")
 	@JoinColumn(name = "bookID")
 	private Books book;
 
 	@ManyToOne
-//	@MapsId("discountID")
 	@JoinColumn(name = "discountID")
 	private Discount discount;
+
+	// ✅ Optional: Add getters, setters, constructor
 }

@@ -3,6 +3,7 @@ package org.isdb.ProjectBackend.model;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,14 +22,14 @@ public class Warehouse {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer warehouseID;
 
+	@Column(nullable = false, length = 100)
 	private String location;
+
 	private Integer stockLevel;
 
-//    @OneToMany(mappedBy = "warehouse")
-//    private List<Books> books;
 	@OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Books> books;
 
-	// @OneToMany(mappedBy = "warehouse")
-	// private List<Inventory> inventories;
+	@OneToMany(mappedBy = "warehouse")
+	private List<Inventory> inventories;
 }

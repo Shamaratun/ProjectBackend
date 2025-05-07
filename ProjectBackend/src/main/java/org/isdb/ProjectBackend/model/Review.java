@@ -2,6 +2,7 @@ package org.isdb.ProjectBackend.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,8 @@ public class Review {
 	private Integer reviewID;
 
 	private Integer rating;
+
+	@Column(nullable = false, length = 100)
 	private String comment;
 	private LocalDateTime reviewDate;
 

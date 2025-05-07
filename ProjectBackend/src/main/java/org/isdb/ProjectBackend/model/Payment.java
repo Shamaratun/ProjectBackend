@@ -1,23 +1,33 @@
 package org.isdb.ProjectBackend.model;
 
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Payment")
 public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Integer paymentID;
+	private Integer paymentID;
+	@Column(nullable = false, length = 100)
+	private String paymentMethod;
 
-    private String paymentMethod;
-    private LocalDateTime paymentDate;
-    private BigDecimal amount;
-    private String transactionStatus;
+	private LocalDateTime paymentDate;
 
-    @OneToOne(mappedBy = "payment")
-    private Order order;
+	private BigDecimal amount;
+
+	@Column(nullable = false, length = 100)
+	private String transactionStatus;
+
+	@OneToOne(mappedBy = "payment")
+	private Order order;
 }

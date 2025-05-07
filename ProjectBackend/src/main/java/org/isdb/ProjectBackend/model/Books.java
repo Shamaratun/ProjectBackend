@@ -46,9 +46,6 @@ public class Books {
 	@JoinColumn(name = "authorID", referencedColumnName = "authorID", nullable = false)
 	private Author author;
 
-//	@ManyToOne
-//	@JoinColumn(name = "warehouseID", referencedColumnName = "id", nullable = false)
-//	private Warehouse warehouse;
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
 	private Warehouse warehouse;
