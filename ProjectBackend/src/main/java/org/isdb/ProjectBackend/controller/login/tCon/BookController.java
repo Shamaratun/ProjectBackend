@@ -49,6 +49,7 @@ public class BookController {
 	public ResponseEntity<Books> updateBook(@PathVariable Integer id, @RequestBody Books updatedBook) {
 		return bookRepository.findById(id).map(book -> {
 			book.setTitle(updatedBook.getTitle());
+			book.setAuthor(updatedBook.getAuthor());
 			book.setIsbn(updatedBook.getIsbn());
 			book.setPrice(updatedBook.getPrice());
 			book.setStock(updatedBook.getStock());
@@ -57,7 +58,7 @@ public class BookController {
 			book.setRating(updatedBook.getRating());
 			book.setCreatedAt(updatedBook.getCreatedAt());
 			book.setUpdatedAt(updatedBook.getUpdatedAt());
-			book.setAuthor(updatedBook.getAuthor());
+
 			return ResponseEntity.ok(bookRepository.save(book));
 		}).orElseGet(() -> ResponseEntity.notFound().build());
 	}

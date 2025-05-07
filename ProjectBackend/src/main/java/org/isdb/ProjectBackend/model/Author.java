@@ -10,7 +10,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "Author")
 public class Author {
@@ -25,6 +29,7 @@ public class Author {
 	private String country;
 	@Column(nullable = false, length = 100)
 	private Date dob;
+   
 
 //	@OneToMany(mappedBy = "author")
 //	private List<Books> books;
