@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.util.Date;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -31,6 +33,6 @@ public class Author {
     @Column(nullable = false, length = 100)
     private Date dob;
 
-//	@OneToMany(mappedBy = "author")
-//	private List<Books> books;
+ @OneToMany(mappedBy = "author")
+	private List<Books> books;
 }
