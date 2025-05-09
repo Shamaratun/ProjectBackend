@@ -22,7 +22,7 @@ public class BookDiscount {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id; // ✅ Use Long or Integer instead of BookDiscount
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name = "bookID")

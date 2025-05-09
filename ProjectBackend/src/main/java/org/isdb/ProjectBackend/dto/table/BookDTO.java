@@ -3,7 +3,12 @@ package org.isdb.ProjectBackend.dto.table;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+import org.isdb.ProjectBackend.model.Author;
+import org.isdb.ProjectBackend.model.Warehouse;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,11 +37,11 @@ public class BookDTO {
 	@Column(name = "updated_at")
 	private Timestamp updatedAt;
 
-//	    @ManyToOne
-//	    @JoinColumn(name = "authorID")
-//	    private Author author;
-//
-//	    @ManyToOne
-//	    @JoinColumn(name = "warehouseID")
-//	    private Warehouse warehouse;
+	@ManyToOne
+	@JoinColumn(name = "authorID")
+	private Author author;
+
+	@ManyToOne
+	@JoinColumn(name = "warehouseID")
+	private Warehouse warehouse;
 }
