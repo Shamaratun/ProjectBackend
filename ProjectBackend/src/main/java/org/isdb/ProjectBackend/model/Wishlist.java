@@ -23,7 +23,7 @@ import lombok.Setter;
 @Table(name = "Wishlist")
 public class Wishlist {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private Integer wishlistID;
 

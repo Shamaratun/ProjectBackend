@@ -2,6 +2,7 @@ package org.isdb.ProjectBackend.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +26,7 @@ import lombok.Setter;
 @Table(name = "Books")
 public class Books {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer bookID;
 
 	@Column(nullable = false, length = 100)
@@ -57,5 +59,8 @@ public class Books {
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
 	private Warehouse warehouse;
-	// Relationships (mappedBy should be added in the other classes)
+
+	@OneToMany
+	private List<Review> reviews;
+
 }

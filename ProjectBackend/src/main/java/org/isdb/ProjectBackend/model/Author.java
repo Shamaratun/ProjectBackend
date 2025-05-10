@@ -1,14 +1,19 @@
 package org.isdb.ProjectBackend.model;
 
-import jakarta.persistence.*;
+import java.util.Date;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -17,22 +22,22 @@ import java.util.List;
 @Entity
 @Table(name = "Author")
 public class Author {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer authorID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer authorID;
 
-    @Column(nullable = false, length = 100)
-    private String name;
+	@Column(nullable = false, length = 100)
+	private String name;
 
-    @Column(nullable = false, length = 100)
-    private String bio;
+	@Column(nullable = false, length = 100)
+	private String bio;
 
-    @Column(nullable = false, length = 100)
-    private String country;
+	@Column(nullable = false, length = 100)
+	private String country;
 
-    @Column(nullable = false, length = 100)
-    private Date dob;
+	@Column(nullable = false, length = 100)
+	private Date dob;
 
- @OneToMany(mappedBy = "author")
+	@OneToMany(mappedBy = "author")
 	private List<Books> books;
 }

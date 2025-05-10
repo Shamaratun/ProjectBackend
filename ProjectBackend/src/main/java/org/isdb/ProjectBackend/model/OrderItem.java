@@ -22,7 +22,7 @@ import lombok.Setter;
 @Table(name = "OrderItem")
 public class OrderItem {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderItemID;
 
 	private Integer quantity;

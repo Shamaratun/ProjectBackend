@@ -1,6 +1,7 @@
 package org.isdb.ProjectBackend.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.isdb.ProjectBackend.constants.Role;
 
@@ -13,6 +14,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +34,7 @@ public class User {
 	private Long id;
 
 	private String username;
+
 	private String fullName;
 
 	@Column(unique = true, nullable = false)
@@ -46,8 +49,14 @@ public class User {
 	private Role role;
 
 	private String address;
+
 	private Long nid;
+
 	private String phoneNumber;
+
+	@OneToMany
+	private List<Review> reviews;
+
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
 
