@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/books")
-@CrossOrigin(origins = "4200") // Allow requests from frontend
+@CrossOrigin(origins = "http://localhost:4200")  // Allow requests from frontend
 public class BookController {
 
 	@Autowired

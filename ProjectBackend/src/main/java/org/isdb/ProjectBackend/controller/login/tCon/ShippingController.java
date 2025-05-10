@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/shipping")
-@CrossOrigin(origins = "4200")
+@CrossOrigin(origins = "http://localhost:4200") 
 public class ShippingController {
 
 	@Autowired

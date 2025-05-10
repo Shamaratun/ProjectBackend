@@ -21,15 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/warehouses")
-@CrossOrigin(origins = "http://localhost:4200") // FIXED: must include protocol + host
+@CrossOrigin(origins = "http://localhost:4200") // Ensure correct CORS setup
 public class WarehouseController {
 
 	@Autowired
 	private WarehouseService warehouseService;
 
 	@GetMapping
-	public List<WarehouseDTO> getAllWarehouses() {
-		return warehouseService.getAllWarehouses().stream().map(WarehouseDTO::fromEntity).collect(Collectors.toList());
+	public ResponseEntity<List<WarehouseDTO>> getAllWarehouses() {
+		List<WarehouseDTO> warehouses = warehouseService.getAllWarehouses().stream().map(WarehouseDTO::fromEntity)
+				.collect(Collectors.toList());
+		return ResponseEntity.ok(warehouses);
 	}
 
 	@GetMapping("/{id}")
@@ -48,17 +50,14 @@ public class WarehouseController {
 	@PutMapping("/{id}")
 	public ResponseEntity<WarehouseDTO> updateWarehouse(@PathVariable Integer id,
 			@RequestBody WarehouseDTO warehouseDTO) {
-		Warehouse updated = warehouseService.updateWarehouse(id, WarehouseDTO.toEntity(warehouseDTO));
-		if (updated != null) {
-			return ResponseEntity.ok(WarehouseDTO.fromEntity(updated));
-		} else {
-			return ResponseEntity.notFound().build();
-		}
+		Warehouse updatedWarehouse = warehouseService.updateWarehouse(id, WarehouseDTO.toEntity(warehouseDTO));
+		return (updatedWarehouse != null) ? ResponseEntity.ok(WarehouseDTO.fromEntity(updatedWarehouse))
+				: ResponseEntity.notFound().build();
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteWarehouse(@PathVariable Integer id) {
-		warehouseService.deleteWarehouse(id);
-		return ResponseEntity.noContent().build();
+		boolean deleted = warehouseService.deleteWarehouse(id);
+		return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
 	}
 }

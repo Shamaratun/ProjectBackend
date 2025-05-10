@@ -16,7 +16,6 @@ public class WarehouseDTO {
 	private String location;
 	private Integer stockLevel;
 
-	// Convert from Entity to DTO
 	public static WarehouseDTO fromEntity(Warehouse warehouse) {
 		WarehouseDTO dto = new WarehouseDTO();
 		dto.setWarehouseID(warehouse.getWarehouseID());
@@ -25,7 +24,6 @@ public class WarehouseDTO {
 		return dto;
 	}
 
-	// Convert from DTO to Entity
 	public static Warehouse toEntity(WarehouseDTO dto) {
 		Warehouse warehouse = new Warehouse();
 		warehouse.setWarehouseID(dto.getWarehouseID());
