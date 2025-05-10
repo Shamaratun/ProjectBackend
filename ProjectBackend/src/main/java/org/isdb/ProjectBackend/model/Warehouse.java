@@ -35,4 +35,5 @@ public class Warehouse {
 
 	@OneToMany(mappedBy = "warehouse")
 	private List<Inventory> inventories;
+
 }

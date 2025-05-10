@@ -1,11 +1,8 @@
 package org.isdb.ProjectBackend.controller.login.tCon;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.isdb.ProjectBackend.dto.table.WarehouseDTO;
-import org.isdb.ProjectBackend.model.Warehouse;
 import org.isdb.ProjectBackend.service.WarehouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,43 +18,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/warehouses")
-@CrossOrigin(origins = "http://localhost:4200") // Ensure correct CORS setup
+@CrossOrigin(origins = "http://localhost:4200")
 public class WarehouseController {
 
 	@Autowired
 	private WarehouseService warehouseService;
 
 	@GetMapping
-	public ResponseEntity<List<WarehouseDTO>> getAllWarehouses() {
-		List<WarehouseDTO> warehouses = warehouseService.getAllWarehouses().stream().map(WarehouseDTO::fromEntity)
-				.collect(Collectors.toList());
-		return ResponseEntity.ok(warehouses);
+	public ResponseEntity<List<WarehouseDTO>> getAll() {
+		return ResponseEntity.ok(warehouseService.getAllWarehouses());
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<WarehouseDTO> getWarehouseById(@PathVariable Integer id) {
-		Optional<Warehouse> warehouse = warehouseService.getWarehouseById(id);
-		return warehouse.map(w -> ResponseEntity.ok(WarehouseDTO.fromEntity(w)))
-				.orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<WarehouseDTO> getById(@PathVariable Integer id) {
+		return warehouseService.getWarehouseById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 
 	@PostMapping
-	public ResponseEntity<WarehouseDTO> createWarehouse(@RequestBody WarehouseDTO warehouseDTO) {
-		Warehouse warehouse = warehouseService.saveWarehouse(WarehouseDTO.toEntity(warehouseDTO));
-		return ResponseEntity.ok(WarehouseDTO.fromEntity(warehouse));
+	public ResponseEntity<WarehouseDTO> create(@RequestBody WarehouseDTO dto) {
+		return ResponseEntity.ok(warehouseService.saveWarehouse(dto));
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<WarehouseDTO> updateWarehouse(@PathVariable Integer id,
-			@RequestBody WarehouseDTO warehouseDTO) {
-		Warehouse updatedWarehouse = warehouseService.updateWarehouse(id, WarehouseDTO.toEntity(warehouseDTO));
-		return (updatedWarehouse != null) ? ResponseEntity.ok(WarehouseDTO.fromEntity(updatedWarehouse))
-				: ResponseEntity.notFound().build();
+	public ResponseEntity<WarehouseDTO> update(@PathVariable Integer id, @RequestBody WarehouseDTO dto) {
+		WarehouseDTO updated = warehouseService.updateWarehouse(id, dto);
+		return (updated != null) ? ResponseEntity.ok(updated) : ResponseEntity.notFound().build();
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteWarehouse(@PathVariable Integer id) {
-		boolean deleted = warehouseService.deleteWarehouse(id);
-		return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+		return warehouseService.deleteWarehouse(id) ? ResponseEntity.noContent().build()
+				: ResponseEntity.notFound().build();
 	}
 }
