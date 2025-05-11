@@ -3,10 +3,8 @@ package org.isdb.ProjectBackend.controller.login.tCon;
 import java.util.List;
 
 import org.isdb.ProjectBackend.dto.table.ReviewDTO;
-import org.isdb.ProjectBackend.model.Review;
 import org.isdb.ProjectBackend.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,47 +24,32 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 
-	// Create Review
 	@PostMapping
-	public ResponseEntity<Review> createReview(@RequestBody Review review) {
-		// Call service method to create the review
-		Review createdReview = reviewService.createReview(review);
-		return new ResponseEntity<>(createdReview, HttpStatus.CREATED);
+	public ResponseEntity<ReviewDTO> createReview(@RequestBody ReviewDTO reviewDTO) {
+		ReviewDTO created = reviewService.createReview(reviewDTO);
+		return created != null ? ResponseEntity.ok(created) : ResponseEntity.badRequest().build();
 	}
 
-	// Get Review by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<ReviewDTO> getReviewById(@PathVariable Integer id) {
+	public ResponseEntity<ReviewDTO> getReviewById(@PathVariable Long id) {
 		ReviewDTO review = reviewService.getReviewById(id);
-		if (review != null) {
-			return new ResponseEntity<>(review, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		return review != null ? ResponseEntity.ok(review) : ResponseEntity.notFound().build();
 	}
 
-	// Get all Reviews
 	@GetMapping
-	public ResponseEntity<List<ReviewDTO>> getAllReviews() {
-		List<ReviewDTO> reviews = reviewService.getAllReviews();
-		return new ResponseEntity<>(reviews, HttpStatus.OK);
+	public List<ReviewDTO> getAllReviews() {
+		return reviewService.getAllReviews();
 	}
 
-	// Update Review
 	@PutMapping("/{id}")
-	public ResponseEntity<ReviewDTO> updateReview(@PathVariable Integer id, @RequestBody ReviewDTO reviewDTO) {
-		ReviewDTO updated = reviewService.updateReview(id, reviewDTO);
-		if (updated != null) {
-			return new ResponseEntity<>(updated, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<ReviewDTO> updateReview(@PathVariable Long id, @RequestBody ReviewDTO dto) {
+		ReviewDTO updated = reviewService.updateReview(id, dto);
+		return updated != null ? ResponseEntity.ok(updated) : ResponseEntity.notFound().build();
 	}
 
-	// Delete Review
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteReview(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteReview(@PathVariable Long id) {
 		reviewService.deleteReview(id);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return ResponseEntity.noContent().build();
 	}
 }

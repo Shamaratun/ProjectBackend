@@ -1,11 +1,11 @@
 package org.isdb.ProjectBackend.dto.table;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,8 +14,7 @@ import java.time.LocalDateTime;
 
 public class CartDTO {
 
-    private Integer cartID;
-    private LocalDateTime createdDate;
-    private Integer userID; // Assuming User has userID
+	private LocalDateTime createdDate;
+	private Integer userID; // Assuming User has userID
 
 }

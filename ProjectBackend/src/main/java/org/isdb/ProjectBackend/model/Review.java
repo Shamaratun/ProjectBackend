@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,14 +22,26 @@ import lombok.Setter;
 @Entity
 @Table(name = "Review")
 public class Review {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ReviewID")
 	private Long id;
 
+	@ManyToOne
+	@JoinColumn(name = "UserId", nullable = false)
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "BookId", nullable = false)
+	private Books book;
+
+	@Column(name = "Rating")
 	private Integer rating;
 
-	@Column(nullable = false, length = 255)
-	private String comments;
+	@Column(name = "Comment", columnDefinition = "TEXT")
+	private String comment;
 
+	@Column(name = "ReviewDate")
 	private LocalDateTime reviewDate;
 }

@@ -21,8 +21,6 @@ import lombok.Setter;
 
 public class BookDTO {
 
-	private Integer classId;
-
 	private String title;
 	private String isbn;
 	private BigDecimal price;

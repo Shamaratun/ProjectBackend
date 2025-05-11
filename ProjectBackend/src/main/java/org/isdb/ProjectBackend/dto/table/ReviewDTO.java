@@ -3,19 +3,17 @@ package org.isdb.ProjectBackend.dto.table;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReviewDTO {
-	private Integer reviewID;
+	private Long reviewID;
+	private Long userID;
+	private Integer bookID;
 	private Integer rating;
 	private String comment;
 	private LocalDateTime reviewDate;
-	private long userID;
-	private Integer bookID;
 }
