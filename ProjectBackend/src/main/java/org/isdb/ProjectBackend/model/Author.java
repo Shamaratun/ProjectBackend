@@ -3,8 +3,12 @@ package org.isdb.ProjectBackend.model;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,9 +22,12 @@ import lombok.Setter;
 @Entity
 @Table(name = "Author")
 public class Author {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer authorID;
+	@Column(name = "authorid")
+	private Long authorId;
+
 	@Column(nullable = false, length = 100)
 	private String name;
 	@Column(nullable = false, length = 100)
@@ -29,8 +36,11 @@ public class Author {
 	private String country;
 	@Column(nullable = false, length = 100)
 	private Date dob;
-   
 
 //	@OneToMany(mappedBy = "author")
+//	@JsonManagedReference
 //	private List<Books> books;
+	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore // Prevent serialization issues
+	private List<Books> books;
 }

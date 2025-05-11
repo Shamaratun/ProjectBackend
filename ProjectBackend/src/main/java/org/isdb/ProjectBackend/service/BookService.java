@@ -4,29 +4,47 @@ import java.util.List;
 import java.util.Optional;
 
 import org.isdb.ProjectBackend.model.Books;
-import org.isdb.ProjectBackend.repository.BooksRepository;
+import org.isdb.ProjectBackend.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BooksService {
+public class BookService {
 
 	@Autowired
-	private BooksRepository booksRepository;
-
-	public Books saveBook(Books book) {
-		return booksRepository.save(book);
-	}
+	private BookRepository bookRepository;
 
 	public List<Books> getAllBooks() {
-		return booksRepository.findAll();
+		return bookRepository.findAll();
 	}
 
-	public Optional<Books> getBookById(Integer id) {
-		return booksRepository.findById(id);
+	public Optional<Books> getBookById(Long id) {
+		return bookRepository.findById(id);
 	}
 
-	public void deleteBook(Integer id) {
-		booksRepository.deleteById(id);
+	public Books createBook(Books book) {
+		return bookRepository.save(book);
+	}
+
+	public Books updateBook(Long id, Books updatedBook) {
+		return bookRepository.findById(id).map(book -> {
+			book.setTitle(updatedBook.getTitle());
+			book.setAuthor(updatedBook.getAuthor());
+			book.setGenre(updatedBook.getGenre());
+			book.setIsbn(updatedBook.getIsbn());
+			book.setPrice(updatedBook.getPrice());
+			book.setStock(updatedBook.getStock());
+			book.setImage(updatedBook.getImage());
+			book.setRating(updatedBook.getRating());
+			book.setUpdatedAt(updatedBook.getUpdatedAt());
+			return bookRepository.save(book);
+		}).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+	}
+
+	public void deleteBook(Long id) {
+		if (!bookRepository.existsById(id)) {
+			throw new RuntimeException("Book not found with id: " + id);
+		}
+		bookRepository.deleteById(id);
 	}
 }

@@ -14,23 +14,25 @@ public class AuthorService {
 	@Autowired
 	private AuthorRepository authorRepository;
 
-	// Create or Update Author
-	public Author saveAuthor(Author author) {
-		return authorRepository.save(author);
-	}
-
-	// Get all authors
 	public List<Author> getAllAuthors() {
 		return authorRepository.findAll();
 	}
 
-	// Get author by ID
-	public Optional<Author> getAuthorById(Integer id) {
+	public Optional<Author> getAuthorById(Long id) {
 		return authorRepository.findById(id);
 	}
 
-	// Delete author by ID
-	public void deleteAuthor(Integer id) {
+	public Author createAuthor(Author author) {
+		return authorRepository.save(author);
+	}
+
+	public Author updateAuthor(Long id, Author updatedAuthor) {
+		// Optional: You may want to check if the author exists
+		updatedAuthor.setAuthorId(id);
+		return authorRepository.save(updatedAuthor);
+	}
+
+	public void deleteAuthor(Long id) {
 		authorRepository.deleteById(id);
 	}
 }

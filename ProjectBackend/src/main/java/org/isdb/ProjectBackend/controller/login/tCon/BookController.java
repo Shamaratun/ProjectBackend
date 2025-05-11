@@ -1,10 +1,9 @@
 package org.isdb.ProjectBackend.controller.login.tCon;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.isdb.ProjectBackend.model.Books;
-import org.isdb.ProjectBackend.repository.BooksRepository;
+import org.isdb.ProjectBackend.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,58 +18,35 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/books")
-@CrossOrigin(origins = "4200") // Allow requests from frontend
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class BookController {
-
 	@Autowired
-	private BooksRepository bookRepository;
+	private BookService bookService;
 
-	// Get all books
 	@GetMapping
 	public List<Books> getAllBooks() {
-		return bookRepository.findAll();
+		return bookService.getAllBooks();
 	}
 
-	// Get a single book by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Books> getBookById(@PathVariable Integer id) {
-		Optional<Books> book = bookRepository.findById(id);
-		return book.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+	public ResponseEntity<Books> getBookById(@PathVariable Long id) {
+		return bookService.getBookById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 
-	// Create a new book
 	@PostMapping
-	public Books createBook(@RequestBody Books book) {
-		return bookRepository.save(book);
+	public ResponseEntity<Books> createBook(@RequestBody Books book) {
+		return ResponseEntity.ok(bookService.createBook(book));
 	}
 
-	// Update an existing book
 	@PutMapping("/{id}")
-	public ResponseEntity<Books> updateBook(@PathVariable Integer id, @RequestBody Books updatedBook) {
-		return bookRepository.findById(id).map(book -> {
-			book.setTitle(updatedBook.getTitle());
-			book.setAuthor(updatedBook.getAuthor());
-			book.setIsbn(updatedBook.getIsbn());
-			book.setPrice(updatedBook.getPrice());
-			book.setStock(updatedBook.getStock());
-			book.setImage(updatedBook.getImage());
-			book.setGenre(updatedBook.getGenre());
-			book.setRating(updatedBook.getRating());
-			book.setCreatedAt(updatedBook.getCreatedAt());
-			book.setUpdatedAt(updatedBook.getUpdatedAt());
-
-			return ResponseEntity.ok(bookRepository.save(book));
-		}).orElseGet(() -> ResponseEntity.notFound().build());
+	public ResponseEntity<Books> updateBook(@PathVariable Long id, @RequestBody Books updatedBook) {
+		return ResponseEntity.ok(bookService.updateBook(id, updatedBook));
 	}
 
-	// Delete a book
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteBook(@PathVariable Integer id) {
-		if (bookRepository.existsById(id)) {
-			bookRepository.deleteById(id);
-			return ResponseEntity.noContent().build();
-		} else {
-			return ResponseEntity.notFound().build();
-		}
+	public ResponseEntity<?> deleteBook(@PathVariable Long id) {
+		bookService.deleteBook(id);
+		return ResponseEntity.ok().build();
 	}
 }
