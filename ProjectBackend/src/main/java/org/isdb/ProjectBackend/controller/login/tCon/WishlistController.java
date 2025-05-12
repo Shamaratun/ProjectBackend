@@ -1,56 +1,74 @@
-// package org.isdb.ProjectBackend.controller.login.tCon;
+package org.isdb.ProjectBackend.controller.login.tCon;
 
-// import org.isdb.ProjectBackend.model.Wishlist;
-// import org.isdb.ProjectBackend.service.WishlistService;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.http.ResponseEntity;
-// import org.springframework.web.bind.annotation.*;
+import org.isdb.ProjectBackend.model.Wishlist;
+import org.isdb.ProjectBackend.service.WishlistService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-// import java.util.List;
-// import java.util.Optional;
+import java.util.List;
+import java.util.Optional;
 
-// @RestController
-// @RequestMapping("/api/wishlists")
-// public class WishlistController {
+@RestController
+@RequestMapping("/api/wishlists")
+@CrossOrigin(origins = "http://localhost:4200")
+public class WishlistController {
 
-//     @Autowired
-//     private WishlistService wishlistService;
+    @Autowired
+    private WishlistService wishlistService;
 
-//     @PostMapping
-//     public ResponseEntity<Wishlist> createWishlist(@RequestBody Wishlist wishlist) {
-//         return ResponseEntity.ok(wishlistService.saveWishlist(wishlist));
-//     }
+    // Get all wishlists
+    @GetMapping
+    public ResponseEntity<List<Wishlist>> getAllWishlists() {
+        List<Wishlist> wishlists = wishlistService.getAllWishlists();
+        if (wishlists.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(wishlists, HttpStatus.OK);
+    }
 
-//     @GetMapping
-//     public List<Wishlist> getAllWishlists() {
-//         return wishlistService.getAllWishlists();
-//     }
+    // Get wishlist by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Wishlist> getWishlistById(@PathVariable Long id) {
+        Optional<Wishlist> wishlist = wishlistService.getWishlistById(id);
+        return wishlist.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+                       .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
-//     @GetMapping("/{id}")
-//     public ResponseEntity<Wishlist> getWishlistById(@PathVariable Integer id) {
-//         Optional<Wishlist> wishlist = wishlistService.getWishlistById(id);
-//         return wishlist.map(ResponseEntity::ok)
-//                        .orElse(ResponseEntity.notFound().build());
-//     }
+    // Create a new wishlist
+    @PostMapping
+    public ResponseEntity<Wishlist> createWishlist(@RequestBody Wishlist wishlist) {
+        if (wishlist.getTitle() == null || wishlist.getTitle().isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // Example field validation
+        }
 
-//     @PutMapping("/{id}")
-//     public ResponseEntity<Wishlist> updateWishlist(@PathVariable Integer id, @RequestBody Wishlist updatedWishlist) {
-//         Optional<Wishlist> existing = wishlistService.getWishlistById(id);
-//         if (existing.isPresent()) {
-//             updatedWishlist.setWishlistID(id);
-//             return ResponseEntity.ok(wishlistService.saveWishlist(updatedWishlist));
-//         } else {
-//             return ResponseEntity.notFound().build();
-//         }
-//     }
+        Wishlist createdWishlist = wishlistService.saveWishlist(wishlist);
+        return new ResponseEntity<>(createdWishlist, HttpStatus.CREATED);
+    }
 
-//     @DeleteMapping("/{id}")
-//     public ResponseEntity<Void> deleteWishlist(@PathVariable Integer id) {
-//         if (wishlistService.getWishlistById(id).isPresent()) {
-//             wishlistService.deleteWishlist(id);
-//             return ResponseEntity.noContent().build();
-//         } else {
-//             return ResponseEntity.notFound().build();
-//         }
-//     }
-// }
+    // Update wishlist by ID
+    @PutMapping("/{id}")
+    public ResponseEntity<Wishlist> updateWishlist(@PathVariable Integer id, @RequestBody Wishlist updatedWishlist) {
+        Optional<Wishlist> existingWishlist = wishlistService.getWishlistById(id);
+        if (!existingWishlist.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        updatedWishlist.setWishlistID(id);
+        Wishlist savedWishlist = wishlistService.saveWishlist(updatedWishlist);
+        return new ResponseEntity<>(savedWishlist, HttpStatus.OK);
+    }
+
+    // Delete wishlist by ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteWishlist(@PathVariable Integer id) {
+        Optional<Wishlist> existingWishlist = wishlistService.getWishlistById(id);
+        if (!existingWishlist.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        wishlistService.deleteWishlist(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+}
