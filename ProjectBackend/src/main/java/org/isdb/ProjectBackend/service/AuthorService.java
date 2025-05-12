@@ -8,6 +8,8 @@ import org.isdb.ProjectBackend.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class AuthorService {
 
@@ -26,10 +28,14 @@ public class AuthorService {
 		return authorRepository.save(author);
 	}
 
-	public Author updateAuthor(Long id, Author updatedAuthor) {
-		// Optional: You may want to check if the author exists
-		updatedAuthor.setAuthorId(id);
-		return authorRepository.save(updatedAuthor);
+	public Author updateAuthor(Long id, Author newAuthorData) {
+		return authorRepository.findById(id).map(author -> {
+			author.setName(newAuthorData.getName());
+			author.setBio(newAuthorData.getBio());
+			author.setCountry(newAuthorData.getCountry());
+			author.setDob(newAuthorData.getDob());
+			return authorRepository.save(author);
+		}).orElseThrow(() -> new EntityNotFoundException("Author not found"));
 	}
 
 	public void deleteAuthor(Long id) {

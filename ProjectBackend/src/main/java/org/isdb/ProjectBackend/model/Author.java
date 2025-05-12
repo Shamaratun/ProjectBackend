@@ -6,7 +6,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -24,23 +23,18 @@ import lombok.Setter;
 public class Author {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "authorid")
-	private Long authorId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Only for authorid
+	private Long authorID;
 
-	@Column(nullable = false, length = 100)
 	private String name;
-	@Column(nullable = false, length = 100)
 	private String bio;
-	@Column(nullable = false, length = 100)
 	private String country;
-	@Column(nullable = false, length = 100)
 	private Date dob;
 
-//	@OneToMany(mappedBy = "author")
-//	@JsonManagedReference
-//	private List<Books> books;
 	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore // Prevent serialization issues
 	private List<Books> books;
 }
+//@OneToMany(mappedBy = "author")
+//@JsonManagedReference
+//private List<Books> books;

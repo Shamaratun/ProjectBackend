@@ -61,19 +61,15 @@ public class AuthorController {
 	// Update author by ID
 	@PutMapping("/{authorID}")
 	public ResponseEntity<Author> updateAuthor(@PathVariable Long authorID, @RequestBody Author author) {
-		// Validate that the author exists
 		Optional<Author> existingAuthor = authorService.getAuthorById(authorID);
 		if (!existingAuthor.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 
-		// Update only the fields that are allowed (excluding authorID)
-		author.setAuthorId(authorID); // Ensure the correct authorID is being updated
 		Author updatedAuthor = authorService.updateAuthor(authorID, author);
 		return new ResponseEntity<>(updatedAuthor, HttpStatus.OK);
 	}
 
-	// Delete author by ID
 	@DeleteMapping("/{authorID}")
 	public ResponseEntity<Void> deleteAuthor(@PathVariable Long authorID) {
 		Optional<Author> existingAuthor = authorService.getAuthorById(authorID);

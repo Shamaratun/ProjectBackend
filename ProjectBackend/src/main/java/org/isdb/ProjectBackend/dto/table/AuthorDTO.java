@@ -12,10 +12,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorDTO {
-	private Integer authorID;
+	private long authorID;
 	private String name;
 	private String bio;
 	private String country;
 	private Date dob;
-   
+
 }
