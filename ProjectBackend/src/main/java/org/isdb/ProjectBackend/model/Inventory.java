@@ -1,6 +1,6 @@
 package org.isdb.ProjectBackend.model;
 
-import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,14 +23,14 @@ import lombok.Setter;
 @Table(name = "Inventory")
 public class Inventory {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Integer inventoryID;
+	private Long inventoryID;
 
 	private Integer quantity;
 
 	@Column(name = "lastUpdated")
-	private Timestamp lastUpdated;
+	private LocalDateTime lastUpdated;
 
 	@ManyToOne
 	@JoinColumn(name = "bookID")

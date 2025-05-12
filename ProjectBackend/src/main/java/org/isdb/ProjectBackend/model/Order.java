@@ -23,8 +23,8 @@ import lombok.Setter;
 @Table(name = "Orders")
 public class Order {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer orderID;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long orderID;
 
 	private LocalDateTime orderDate;
 	@Column(nullable = false, length = 100)

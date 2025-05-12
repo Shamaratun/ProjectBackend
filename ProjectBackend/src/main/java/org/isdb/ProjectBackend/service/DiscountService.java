@@ -20,7 +20,7 @@ public class DiscountService {
     }
 
     // Get a discount by ID
-    public Optional<Discount> getDiscountById(Integer id) {
+    public Optional<Discount> getDiscountById(Long id) {
         return discountRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class DiscountService {
     }
 
     // Update an existing discount
-    public Discount updateDiscount(Integer id, Discount discountDetails) {
+    public Discount updateDiscount(Long id, Discount discountDetails) {
         Optional<Discount> existingDiscount = discountRepository.findById(id);
         if (existingDiscount.isPresent()) {
             Discount updatedDiscount = existingDiscount.get();
@@ -46,7 +46,7 @@ public class DiscountService {
     }
 
     // Delete a discount by ID
-    public void deleteDiscount(Integer id) {
+    public void deleteDiscount(Long id) {
         discountRepository.deleteById(id);
     }
 

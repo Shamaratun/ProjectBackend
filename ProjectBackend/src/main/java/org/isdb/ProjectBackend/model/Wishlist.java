@@ -25,13 +25,14 @@ public class Wishlist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	private Integer wishlistID;
+	private Long wishlistID;
 
 	@ManyToOne
 	@JoinColumn(name = "userID")
 	private User user;
 
 	@OneToMany(mappedBy = "wishlist")
+	@JoinColumn(name = "wishlistItemID", nullable = false)
 	private List<WishlistItem> items;
 
 }

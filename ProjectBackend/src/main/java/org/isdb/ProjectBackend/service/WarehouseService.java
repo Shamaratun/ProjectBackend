@@ -20,7 +20,7 @@ public class WarehouseService {
 		return warehouseRepository.findAll().stream().map(WarehouseDTO::fromEntity).collect(Collectors.toList());
 	}
 
-	public Optional<WarehouseDTO> getWarehouseById(Integer id) {
+	public Optional<WarehouseDTO> getWarehouseById(Long id) {
 		return warehouseRepository.findById(id).map(WarehouseDTO::fromEntity);
 	}
 
@@ -29,7 +29,7 @@ public class WarehouseService {
 		return WarehouseDTO.fromEntity(saved);
 	}
 
-	public WarehouseDTO updateWarehouse(Integer id, WarehouseDTO dto) {
+	public WarehouseDTO updateWarehouse(Long id, WarehouseDTO dto) {
 		Optional<Warehouse> optional = warehouseRepository.findById(id);
 		if (optional.isPresent()) {
 			Warehouse existing = optional.get();
@@ -41,7 +41,7 @@ public class WarehouseService {
 		return null;
 	}
 
-	public boolean deleteWarehouse(Integer id) {
+	public boolean deleteWarehouse(Long id) {
 		if (warehouseRepository.existsById(id)) {
 			warehouseRepository.deleteById(id);
 			return true;

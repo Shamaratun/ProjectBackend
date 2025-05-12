@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/AuthorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/controller/login/tCon/WishlistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/AuthorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/BooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/BooksService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/service/WishlistService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/InventoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -58,12 +59,12 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Shamaratun/ProjectBackend.git&quot;,
-    &quot;accountId&quot;: &quot;52b21941-cd23-4984-b718-90d761b4f1aa&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Shamaratun/ProjectBackend.git",
+    "accountId": "a06c2025-3dcb-4ad6-8a67-9bd27eaacaa4"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -72,18 +73,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Maven.ProjectBackend [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ProjectBackend [compile].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;table&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Maven.ProjectBackend [clean].executor": "Run",
+    "Maven.ProjectBackend [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "table",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="" />

@@ -21,11 +21,11 @@ public class WishlistService {
         return wishlistRepository.findAll();
     }
 
-    public Optional<Wishlist> getWishlistById(Integer id) {
+    public Optional<Wishlist> getWishlistById(Long id) {
         return wishlistRepository.findById(id);
     }
 
-    public void deleteWishlist(Integer id) {
+    public void deleteWishlist(Long id) {
         wishlistRepository.deleteById(id);
     }
 }

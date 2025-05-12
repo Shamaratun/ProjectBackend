@@ -41,7 +41,7 @@ public class ShippingController {
 
 	// Get Shipping by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Shipping> getShippingById(@PathVariable Integer id) {
+	public ResponseEntity<Shipping> getShippingById(@PathVariable Long id) {
 		Optional<Shipping> shipping = shippingService.getShippingById(id);
 		if (shipping.isPresent()) {
 			return new ResponseEntity<>(shipping.get(), HttpStatus.OK);
@@ -52,7 +52,7 @@ public class ShippingController {
 
 	// Delete Shipping by ID
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteShippingById(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteShippingById(@PathVariable Long id) {
 		shippingService.deleteShippingById(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}

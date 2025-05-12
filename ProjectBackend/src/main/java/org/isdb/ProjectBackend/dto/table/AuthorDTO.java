@@ -1,3 +1,4 @@
+
 package org.isdb.ProjectBackend.dto.table;
 
 import java.util.Date;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorDTO {
-
+	private long authorID;
 	private String name;
 	private String bio;
 	private String country;

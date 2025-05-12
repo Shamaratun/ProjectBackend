@@ -34,7 +34,7 @@ public class DiscountController {
 
 	// Get a discount by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Discount> getDiscountById(@PathVariable Integer id) {
+	public ResponseEntity<Discount> getDiscountById(@PathVariable Long id) {
 		Optional<Discount> discount = discountService.getDiscountById(id);
 		return discount.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
@@ -48,7 +48,7 @@ public class DiscountController {
 
 	// Update an existing discount
 	@PutMapping("/{id}")
-	public ResponseEntity<Discount> updateDiscount(@PathVariable Integer id, @RequestBody Discount discountDetails) {
+	public ResponseEntity<Discount> updateDiscount(@PathVariable Long id, @RequestBody Discount discountDetails) {
 		Discount updatedDiscount = discountService.updateDiscount(id, discountDetails);
 		return updatedDiscount != null ? ResponseEntity.ok(updatedDiscount)
 				: ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -56,7 +56,7 @@ public class DiscountController {
 
 	// Delete a discount
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteDiscount(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteDiscount(@PathVariable Long id) {
 		discountService.deleteDiscount(id);
 		return ResponseEntity.noContent().build();
 	}

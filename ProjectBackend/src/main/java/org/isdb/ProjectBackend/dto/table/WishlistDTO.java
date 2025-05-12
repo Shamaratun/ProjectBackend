@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class WishlistDTO {
-	private Integer wishlistID;
-	private Integer userID; // Only include ID to avoid circular references
+	private Long wishlistID;
+	private Long id; // Only include ID to avoid circular references
 	private List<WishlistItemDTO> items;
 }

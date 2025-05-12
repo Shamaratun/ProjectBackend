@@ -25,12 +25,12 @@ public class OrderService {
     }
 
     // Get Order by ID
-    public Optional<Order> getOrderById(Integer id) {
+    public Optional<Order> getOrderById(Long id) {
         return orderRepository.findById(id);
     }
 
     // Delete Order by ID
-    public void deleteOrderById(Integer id) {
+    public void deleteOrderById(Long id) {
         orderRepository.deleteById(id);
     }
 }

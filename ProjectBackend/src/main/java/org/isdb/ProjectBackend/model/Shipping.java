@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -22,9 +23,9 @@ import lombok.Setter;
 @Table(name = "Shipping")
 public class Shipping {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Integer shippingID;
+	private Long shippingID;
 	@Column(nullable = false, length = 100)
 	private String address;
 	@Column(nullable = false, length = 100)
@@ -39,5 +40,6 @@ public class Shipping {
 	private BigDecimal shippingCost;
 
 	@OneToOne(mappedBy = "shipping")
+	@JoinColumn(name = "orderID", nullable = false)
 	private Order order;
 }
