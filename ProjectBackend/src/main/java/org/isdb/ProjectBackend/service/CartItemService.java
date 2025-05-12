@@ -14,23 +14,23 @@ public class CartItemService {
     @Autowired
     private CartItemRepository cartItemRepository;
 
-    // Get all cart items
+  
     public List<CartItem> getAllCartItems() {
         return cartItemRepository.findAll();
     }
 
-    // Get a cart item by ID
-    public Optional<CartItem> getCartItemById(Integer id) {
+   
+    public Optional<CartItem> getCartItemById(Long id) {
         return cartItemRepository.findById(id);
     }
 
-    // Save a new cart item
+ 
     public CartItem saveCartItem(CartItem cartItem) {
         return cartItemRepository.save(cartItem);
     }
 
-    // Update an existing cart item
-    public CartItem updateCartItem(Integer id, CartItem cartItemDetails) {
+   
+    public CartItem updateCartItem(Long id, CartItem cartItemDetails) {
         Optional<CartItem> existingCartItem = cartItemRepository.findById(id);
         if (existingCartItem.isPresent()) {
             CartItem updatedCartItem = existingCartItem.get();
@@ -39,11 +39,11 @@ public class CartItemService {
             updatedCartItem.setBook(cartItemDetails.getBook());
             return cartItemRepository.save(updatedCartItem);
         }
-        return null; // Handle case where cart item does not exist
+        return null;
     }
 
-    // Delete a cart item by ID
-    public void deleteCartItem(Integer id) {
+  
+    public void deleteCartItem(Long id) {
         cartItemRepository.deleteById(id);
     }
 }

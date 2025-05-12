@@ -34,7 +34,7 @@ public class CartItemController {
 
 	// Get a cart item by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<CartItem> getCartItemById(@PathVariable Integer id) {
+	public ResponseEntity<CartItem> getCartItemById(@PathVariable Long id) {
 		Optional<CartItem> cartItem = cartItemService.getCartItemById(id);
 		return cartItem.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
@@ -48,7 +48,7 @@ public class CartItemController {
 
 	// Update an existing cart item
 	@PutMapping("/{id}")
-	public ResponseEntity<CartItem> updateCartItem(@PathVariable Integer id, @RequestBody CartItem cartItemDetails) {
+	public ResponseEntity<CartItem> updateCartItem(@PathVariable Long id, @RequestBody CartItem cartItemDetails) {
 		CartItem updatedCartItem = cartItemService.updateCartItem(id, cartItemDetails);
 		return updatedCartItem != null ? ResponseEntity.ok(updatedCartItem)
 				: ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -56,7 +56,7 @@ public class CartItemController {
 
 	// Delete a cart item
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteCartItem(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteCartItem(@PathVariable Long id) {
 		cartItemService.deleteCartItem(id);
 		return ResponseEntity.noContent().build();
 	}

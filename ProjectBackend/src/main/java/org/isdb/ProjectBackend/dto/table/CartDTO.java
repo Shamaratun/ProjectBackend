@@ -16,5 +16,9 @@ public class CartDTO {
 
 	private LocalDateTime createdDate;
 	private Integer userID; // Assuming User has userID
+private String status;
+	private Long cartID;
+	// Assuming CartItemDTO is defined elsewhere
 
+	// Add any additional fields or methods as needed
 }

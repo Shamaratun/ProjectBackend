@@ -22,9 +22,11 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	private Integer cartID;
+	private Long cartID;
 
 	private LocalDateTime createdDate;
+
+	private	String status;
 
 	@ManyToOne
 	@JoinColumn(name = "userID")
