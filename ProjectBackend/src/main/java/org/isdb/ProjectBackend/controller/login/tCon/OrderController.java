@@ -36,13 +36,13 @@ public class OrderController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Order> getOrderById(@PathVariable Integer id) {
+	public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
 		Optional<Order> order = orderService.getOrderById(id);
 		return order.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Order> updateOrder(@PathVariable Integer id, @RequestBody Order updatedOrder) {
+	public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order updatedOrder) {
 		Optional<Order> existingOrder = orderService.getOrderById(id);
 		if (existingOrder.isPresent()) {
 			updatedOrder.setOrderID(id); // Ensure the ID is set correctly
@@ -53,7 +53,7 @@ public class OrderController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteOrder(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
 		orderService.deleteOrderById(id);
 		return ResponseEntity.noContent().build();
 	}

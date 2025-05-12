@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ShippingRepository extends JpaRepository<Shipping, Integer> {
+public interface ShippingRepository extends JpaRepository<Shipping, Long> {
     // You can add custom queries here if needed
 }

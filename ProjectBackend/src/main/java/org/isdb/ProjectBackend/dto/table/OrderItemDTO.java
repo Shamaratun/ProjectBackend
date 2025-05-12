@@ -8,10 +8,10 @@ import lombok.Data;
 
 @Data
 public class OrderItemDTO {
-    private Integer orderItemID;
+    private Long orderItemID;
     private Integer quantity;
     private BigDecimal price;
-    private Integer orderID;
-    private Integer bookID;
+    private Long orderID;
+    private Long bookID;
 }
 

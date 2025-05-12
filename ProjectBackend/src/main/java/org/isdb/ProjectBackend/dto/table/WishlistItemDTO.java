@@ -11,9 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class WishlistItemDTO {
 
-    private Integer wishlistItemID;
-    private Integer wishlistID;
-    private Integer bookID;
+    private Long wishlistItemID;
+    private Long wishlistID;
+    private Long bookID;
 
 
 }

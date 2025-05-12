@@ -20,7 +20,7 @@ public class CartService {
     }
 
     // Get a cart by ID
-    public Optional<Cart> getCartById(Integer id) {
+    public Optional<Cart> getCartById(Long id) {
         return cartRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class CartService {
     }
 
     // Update an existing cart
-    public Cart updateCart(Integer id, Cart cartDetails) {
+    public Cart updateCart(Long id, Cart cartDetails) {
         Optional<Cart> existingCart = cartRepository.findById(id);
         if (existingCart.isPresent()) {
             Cart updatedCart = existingCart.get();
@@ -42,7 +42,7 @@ public class CartService {
     }
 
     // Delete a cart by ID
-    public void deleteCart(Integer id) {
+    public void deleteCart(Long id) {
         cartRepository.deleteById(id);
     }
 }

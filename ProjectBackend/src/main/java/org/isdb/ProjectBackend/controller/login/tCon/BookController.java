@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.isdb.ProjectBackend.model.Books;
-import org.isdb.ProjectBackend.repository.BooksRepository;
+import org.isdb.ProjectBackend.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookController {
 
 	@Autowired
-	private BooksRepository bookRepository;
+	private BookRepository bookRepository;
 
 	// Get all books
 	@GetMapping
@@ -31,7 +31,7 @@ public class BookController {
 
 	// Get a single book by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Books> getBookById(@PathVariable Integer id) {
+	public ResponseEntity<Books> getBookById(@PathVariable Long id) {
 		Optional<Books> book = bookRepository.findById(id);
 		return book.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 	}
@@ -44,7 +44,7 @@ public class BookController {
 
 	// Update an existing book
 	@PutMapping("/{id}")
-	public ResponseEntity<Books> updateBook(@PathVariable Integer id, @RequestBody Books updatedBook) {
+	public ResponseEntity<Books> updateBook(@PathVariable Long id, @RequestBody Books updatedBook) {
 		return bookRepository.findById(id).map(book -> {
 			book.setTitle(updatedBook.getTitle());
 			book.setAuthor(updatedBook.getAuthor());
@@ -63,7 +63,7 @@ public class BookController {
 
 	// Delete a book
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteBook(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
 		if (bookRepository.existsById(id)) {
 			bookRepository.deleteById(id);
 			return ResponseEntity.noContent().build();

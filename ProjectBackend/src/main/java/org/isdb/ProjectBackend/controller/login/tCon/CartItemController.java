@@ -26,27 +26,26 @@ public class CartItemController {
 	@Autowired
 	private CartItemService cartItemService;
 
-	// Get all cart items
+	
 	@GetMapping
 	public List<CartItem> getAllCartItems() {
 		return cartItemService.getAllCartItems();
 	}
 
-	// Get a cart item by ID
 	@GetMapping("/{id}")
 	public ResponseEntity<CartItem> getCartItemById(@PathVariable Long id) {
 		Optional<CartItem> cartItem = cartItemService.getCartItemById(id);
 		return cartItem.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
-	// Create a new cart item
+	
 	@PostMapping
 	public ResponseEntity<CartItem> createCartItem(@RequestBody CartItem cartItem) {
 		CartItem savedCartItem = cartItemService.saveCartItem(cartItem);
 		return ResponseEntity.status(HttpStatus.CREATED).body(savedCartItem);
 	}
 
-	// Update an existing cart item
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<CartItem> updateCartItem(@PathVariable Long id, @RequestBody CartItem cartItemDetails) {
 		CartItem updatedCartItem = cartItemService.updateCartItem(id, cartItemDetails);
@@ -54,7 +53,7 @@ public class CartItemController {
 				: ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
-	// Delete a cart item
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteCartItem(@PathVariable Long id) {
 		cartItemService.deleteCartItem(id);

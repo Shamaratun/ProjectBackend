@@ -14,23 +14,23 @@ public class ShippingService {
     @Autowired
     private ShippingRepository shippingRepository;
 
-    // Save Shipping
+   
     public Shipping saveShipping(Shipping shipping) {
         return shippingRepository.save(shipping);
     }
 
-    // Get all Shippings
+
     public List<Shipping> getAllShippings() {
         return shippingRepository.findAll();
     }
 
-    // Get Shipping by ID
-    public Optional<Shipping> getShippingById(Integer id) {
+   
+    public Optional<Shipping> getShippingById(Long id) {
         return shippingRepository.findById(id);
     }
 
-    // Delete Shipping by ID
-    public void deleteShippingById(Integer id) {
+
+    public void deleteShippingById(Long id) {
         shippingRepository.deleteById(id);
     }
 }

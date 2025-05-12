@@ -20,7 +20,7 @@ import lombok.Setter;
 @Table(name = "Cart")
 public class Cart {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private Long cartID;
 
@@ -29,7 +29,7 @@ public class Cart {
 	private	String status;
 
 	@ManyToOne
-	@JoinColumn(name = "userID")
+	@JoinColumn(name = "id")
 	private User user;
 
 	@OneToMany(mappedBy = "cart")

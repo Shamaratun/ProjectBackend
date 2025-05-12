@@ -20,8 +20,8 @@ import lombok.Setter;
 @Table(name = "Discount")
 public class Discount {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer discountID;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long discountID;
 	@Column(nullable = false, length = 100)
 	private String name;
 	@Column(nullable = false, length = 100)

@@ -34,7 +34,7 @@ public class WishlistItemController {
 
 	// Get a wishlist item by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<WishlistItem> getWishlistItemById(@PathVariable Integer id) {
+	public ResponseEntity<WishlistItem> getWishlistItemById(@PathVariable Long id) {
 		Optional<WishlistItem> wishlistItem = wishlistItemService.getWishlistItemById(id);
 		return wishlistItem.map(ResponseEntity::ok)
 				.orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
@@ -49,7 +49,7 @@ public class WishlistItemController {
 
 	// Update an existing wishlist item
 	@PutMapping("/{id}")
-	public ResponseEntity<WishlistItem> updateWishlistItem(@PathVariable Integer id,
+	public ResponseEntity<WishlistItem> updateWishlistItem(@PathVariable Long id,
 			@RequestBody WishlistItem wishlistItemDetails) {
 		WishlistItem updatedWishlistItem = wishlistItemService.updateWishlistItem(id, wishlistItemDetails);
 		return updatedWishlistItem != null ? ResponseEntity.ok(updatedWishlistItem)
@@ -58,7 +58,7 @@ public class WishlistItemController {
 
 	// Delete a wishlist item
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteWishlistItem(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteWishlistItem(@PathVariable Long id) {
 		wishlistItemService.deleteWishlistItem(id);
 		return ResponseEntity.noContent().build();
 	}

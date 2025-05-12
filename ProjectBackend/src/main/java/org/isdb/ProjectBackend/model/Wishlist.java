@@ -25,7 +25,7 @@ public class Wishlist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	private Integer wishlistID;
+	private Long wishlistID;
 
 	@ManyToOne
 	@JoinColumn(name = "userID")

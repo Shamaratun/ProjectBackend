@@ -22,8 +22,8 @@ import lombok.Setter;
 @Table(name = "Warehouse")
 public class Warehouse {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer warehouseID;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long warehouseID;
 
 	@Column(nullable = false, length = 100)
 	private String location;

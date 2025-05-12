@@ -15,7 +15,7 @@ import lombok.Setter;
 public class CartDTO {
 
 	private LocalDateTime createdDate;
-	private Integer userID; // Assuming User has userID
+	private Long id; // Assuming User has userID
 private String status;
 	private Long cartID;
 	// Assuming CartItemDTO is defined elsewhere

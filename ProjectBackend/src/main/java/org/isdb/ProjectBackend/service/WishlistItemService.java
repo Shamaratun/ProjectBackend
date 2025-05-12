@@ -20,7 +20,7 @@ public class WishlistItemService {
     }
 
     // Get a wishlist item by ID
-    public Optional<WishlistItem> getWishlistItemById(Integer id) {
+    public Optional<WishlistItem> getWishlistItemById(Long id) {
         return wishlistItemRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class WishlistItemService {
     }
 
     // Update an existing wishlist item
-    public WishlistItem updateWishlistItem(Integer id, WishlistItem wishlistItemDetails) {
+    public WishlistItem updateWishlistItem(Long id, WishlistItem wishlistItemDetails) {
         Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findById(id);
         if (existingWishlistItem.isPresent()) {
             WishlistItem updatedWishlistItem = existingWishlistItem.get();
@@ -42,7 +42,7 @@ public class WishlistItemService {
     }
 
     // Delete a wishlist item by ID
-    public void deleteWishlistItem(Integer id) {
+    public void deleteWishlistItem(Long id) {
         wishlistItemRepository.deleteById(id);
     }
 }

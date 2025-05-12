@@ -8,29 +8,37 @@ import org.isdb.ProjectBackend.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class AuthorService {
 
 	@Autowired
 	private AuthorRepository authorRepository;
 
-	// Create or Update Author
-	public Author saveAuthor(Author author) {
-		return authorRepository.save(author);
-	}
-
-	// Get all authors
 	public List<Author> getAllAuthors() {
 		return authorRepository.findAll();
 	}
 
-	// Get author by ID
-	public Optional<Author> getAuthorById(Integer id) {
+	public Optional<Author> getAuthorById(Long id) {
 		return authorRepository.findById(id);
 	}
 
-	// Delete author by ID
-	public void deleteAuthor(Integer id) {
+	public Author createAuthor(Author author) {
+		return authorRepository.save(author);
+	}
+
+	public Author updateAuthor(Long id, Author newAuthorData) {
+		return authorRepository.findById(id).map(author -> {
+			author.setName(newAuthorData.getName());
+			author.setBio(newAuthorData.getBio());
+			author.setCountry(newAuthorData.getCountry());
+			author.setDob(newAuthorData.getDob());
+			return authorRepository.save(author);
+		}).orElseThrow(() -> new EntityNotFoundException("Author not found"));
+	}
+
+	public void deleteAuthor(Long id) {
 		authorRepository.deleteById(id);
 	}
 }

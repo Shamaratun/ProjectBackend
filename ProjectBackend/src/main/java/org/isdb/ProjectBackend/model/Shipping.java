@@ -22,9 +22,9 @@ import lombok.Setter;
 @Table(name = "Shipping")
 public class Shipping {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Integer shippingID;
+	private Long shippingID;
 	@Column(nullable = false, length = 100)
 	private String address;
 	@Column(nullable = false, length = 100)

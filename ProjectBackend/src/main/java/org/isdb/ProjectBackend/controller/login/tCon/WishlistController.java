@@ -36,13 +36,13 @@ public class WishlistController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Wishlist> getWishlistById(@PathVariable Integer id) {
+	public ResponseEntity<Wishlist> getWishlistById(@PathVariable Long id) {
 		Optional<Wishlist> wishlist = wishlistService.getWishlistById(id);
 		return wishlist.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Wishlist> updateWishlist(@PathVariable Integer id, @RequestBody Wishlist updatedWishlist) {
+	public ResponseEntity<Wishlist> updateWishlist(@PathVariable Long id, @RequestBody Wishlist updatedWishlist) {
 		Optional<Wishlist> existing = wishlistService.getWishlistById(id);
 		if (existing.isPresent()) {
 			updatedWishlist.setWishlistID(id);
@@ -53,7 +53,7 @@ public class WishlistController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteWishlist(@PathVariable Integer id) {
+	public ResponseEntity<Void> deleteWishlist(@PathVariable Long id) {
 		if (wishlistService.getWishlistById(id).isPresent()) {
 			wishlistService.deleteWishlist(id);
 			return ResponseEntity.noContent().build();

@@ -21,7 +21,7 @@ import lombok.Setter;
 public class WishlistItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer wishlistItemID;
+	private Long wishlistItemID;
 
 	@ManyToOne
 	@JoinColumn(name = "wishlistID")

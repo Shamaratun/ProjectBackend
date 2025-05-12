@@ -22,8 +22,8 @@ import lombok.Setter;
 @Table(name = "OrderItem")
 public class OrderItem {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer orderItemID;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long orderItemID;
 
 	private Integer quantity;
 

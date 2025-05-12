@@ -1,78 +1,57 @@
 package org.isdb.ProjectBackend.service;
 
-import java.time.LocalDateTime;
+import org.isdb.ProjectBackend.dto.table.ReviewDTO;
+import org.isdb.ProjectBackend.model.Review;
+import org.isdb.ProjectBackend.repository.ReviewRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.isdb.ProjectBackend.dto.table.ReviewDTO;
-import org.isdb.ProjectBackend.model.Review;
-import org.isdb.ProjectBackend.model.User;
-import org.isdb.ProjectBackend.repository.BooksRepository;
-import org.isdb.ProjectBackend.repository.ReviewRepository;
-import org.isdb.ProjectBackend.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 @Service
 public class ReviewService {
 
-	@Autowired
-	private ReviewRepository reviewRepository;
+    @Autowired
+    private ReviewRepository reviewRepository;
 
-	@Autowired
-	private UserRepository userRepository;
+    public ReviewDTO createReview(ReviewDTO reviewDTO) {
+        // Create a new Review entity from DTO and save to the repository
+        Review review = new Review();
+        review.setReviewDate(reviewDTO.getReviewDate());
+        // Map other fields from DTO to Review entity
+        Review savedReview = reviewRepository.save(review);
+        return ReviewDTO.fromEntity(savedReview);
+    }
 
-	@Autowired
-	private BooksRepository booksRepository;
+    public ReviewDTO getReviewById(Long id) {
+        Review review = reviewRepository.findById(id).orElse(null);
+        return review != null ? ReviewDTO.fromEntity(review) : null;
+    }
 
-	public ReviewDTO createReview(ReviewDTO dto) {
-		Optional<User> userOpt = userRepository.findById(dto.getUserID());
+    public List<ReviewDTO> getAllReviews() {
+        List<Review> reviews = reviewRepository.findAll();
+        return reviews.stream().map(ReviewDTO::fromEntity).collect(Collectors.toList());
+    }
 
-		if (userOpt.isEmpty()) {
-			throw new IllegalArgumentException("Invalid UserID ");
-		}
+    public ReviewDTO updateReview(Long id, ReviewDTO reviewDTO) {
+        Review review = reviewRepository.findById(id).orElse(null);
+        if (review != null) {
+            review.setReviewDate(reviewDTO.getReviewDate());
+            // Map other fields
+            Review updatedReview = reviewRepository.save(review);
+            return ReviewDTO.fromEntity(updatedReview);
+        }
+        return null;
+    }
 
-		Review review = new Review();
-		review.setUser(userOpt.get());
-
-		review.setRating(dto.getRating());
-		review.setComment(dto.getComment());
-		review.setReviewDate(LocalDateTime.now());
-
-		Review saved = reviewRepository.save(review);
-		return mapToDTO(saved);
-	}
-
-	public ReviewDTO getReviewById(Long id) {
-		return reviewRepository.findById(id).map(this::mapToDTO)
-				.orElseThrow(() -> new IllegalArgumentException("Review not found with ID: " + id));
-	}
-
-	public List<ReviewDTO> getAllReviews() {
-		return reviewRepository.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
-	}
-
-	public ReviewDTO updateReview(Long id, ReviewDTO dto) {
-		Review review = reviewRepository.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("Review not found with ID: " + id));
-
-		review.setRating(dto.getRating());
-		review.setComment(dto.getComment());
-		review.setReviewDate(LocalDateTime.now());
-
-		return mapToDTO(reviewRepository.save(review));
-	}
-
-	public void deleteReview(Long id) {
-		if (!reviewRepository.existsById(id)) {
-			throw new IllegalArgumentException("Review not found with ID: " + id);
-		}
-		reviewRepository.deleteById(id);
-	}
-
-	private ReviewDTO mapToDTO(Review review) {
-		return new ReviewDTO(review.getId(), review.getUser().getId(), review.getBook().getBookID(), review.getRating(),
-				review.getComment(), review.getReviewDate());
-	}
+    public boolean deleteReview(Long id) {
+        Optional<Review> review = reviewRepository.findById(id);
+        if (review.isPresent()) {
+            reviewRepository.delete(review.get());
+            return true;  // Successfully deleted
+        }
+        return false;  // Review not found
+    }
 }
