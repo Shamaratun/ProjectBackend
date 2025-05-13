@@ -21,11 +21,11 @@ public class InventoryService {
     // Convert Entity to DTO
     private InventoryDTO toDTO(Inventory inventory) {
         InventoryDTO dto = new InventoryDTO();
-        dto.setInventoryID(inventory.getInventoryID());
+        dto.setInventoryId(inventory.getInventoryId());
         dto.setQuantity(inventory.getQuantity());
         dto.setLastUpdated(inventory.getLastUpdated());
-        dto.setBookID(inventory.getBook().getBookID());   // Assuming Book entity has a getBookID() method
-        dto.setWarehouseID(inventory.getWarehouse().getWarehouseID()); // Assuming Warehouse has a getWarehouseID() method
+        dto.setBookId(inventory.getBook().getBookId());   // Assuming Book entity has a getBookId() method
+        dto.setWarehouseId(inventory.getWarehouse().getWarehouseId()); // Assuming Warehouse has a getWarehouseId() method
         return dto;
     }
 
@@ -36,7 +36,7 @@ public class InventoryService {
                 .collect(Collectors.toList());
     }
 
-    // Get Inventory by ID
+    // Get Inventory by Id
     public Optional<InventoryDTO> getInventoryById(Long id) {
         return inventoryRepository.findById(id).map(this::toDTO);
     }
@@ -44,20 +44,20 @@ public class InventoryService {
     // Save or Update Inventory
     public InventoryDTO saveOrUpdateInventory(InventoryDTO inventoryDTO) {
         Inventory inventory = new Inventory();
-        inventory.setInventoryID(inventoryDTO.getInventoryID());
+        inventory.setInventoryId(inventoryDTO.getInventoryId());
         inventory.setQuantity(inventoryDTO.getQuantity());
         inventory.setLastUpdated(inventoryDTO.getLastUpdated());
 
-        // Assuming you have methods to get the book and warehouse from IDs
-        // Example: bookService.findById(inventoryDTO.getBookID())
-        // Example: warehouseService.findById(inventoryDTO.getWarehouseID())
+        // Assuming you have methods to get the book and warehouse from Ids
+        // Example: bookService.findById(inventoryDTO.getBookId())
+        // Example: warehouseService.findById(inventoryDTO.getWarehouseId())
 
         // Save the inventory to the database
         Inventory savedInventory = inventoryRepository.save(inventory);
         return toDTO(savedInventory);
     }
 
-    // Delete Inventory by ID
+    // Delete Inventory by Id
     public void deleteInventory(Long id) {
         inventoryRepository.deleteById(id);
     }

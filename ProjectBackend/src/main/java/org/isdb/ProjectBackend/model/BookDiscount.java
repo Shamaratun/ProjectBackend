@@ -25,12 +25,11 @@ public class BookDiscount {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "bookID")
+	@JoinColumn(name = "bookId")
 	private Books book;
 
 	@ManyToOne
-	@JoinColumn(name = "discountID")
+	@JoinColumn(name = "discountId")
 	private Discount discount;
 
-	// ✅ Optional: Add getters, setters, constructor
 }

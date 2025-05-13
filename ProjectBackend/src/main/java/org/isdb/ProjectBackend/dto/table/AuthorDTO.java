@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorDTO {
-	private long authorID;
+	private long authorId;
 	private String name;
 	private String bio;
 	private String country;

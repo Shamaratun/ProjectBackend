@@ -25,7 +25,7 @@ public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private Long inventoryID;
+	private Long inventoryId;
 
 	private Integer quantity;
 
@@ -33,10 +33,10 @@ public class Inventory {
 	private LocalDateTime lastUpdated;
 
 	@ManyToOne
-	@JoinColumn(name = "bookID")
+	@JoinColumn(name = "bookId")
 	private Books book;
 
 	@ManyToOne
-	@JoinColumn(name = "warehouseID")
+	@JoinColumn(name = "warehouseId")
 	private Warehouse warehouse;
 }

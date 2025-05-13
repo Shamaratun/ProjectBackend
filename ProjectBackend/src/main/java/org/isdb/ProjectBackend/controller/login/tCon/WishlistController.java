@@ -19,39 +19,47 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/wishlists")
-@CrossOrigin(origins = "http://localhost:4200") 
+@CrossOrigin(origins = "http://localhost:4200")
 public class WishlistController {
 
 	@Autowired
 	private WishlistService wishlistService;
 
+	// Create a new wishlist
 	@PostMapping
 	public ResponseEntity<Wishlist> createWishlist(@RequestBody Wishlist wishlist) {
-		return ResponseEntity.ok(wishlistService.saveWishlist(wishlist));
+		Wishlist createdWishlist = wishlistService.saveWishlist(wishlist);
+		return ResponseEntity.ok(createdWishlist);
 	}
 
+	// Get all wishlists
 	@GetMapping
-	public List<Wishlist> getAllWishlists() {
-		return wishlistService.getAllWishlists();
+	public ResponseEntity<List<Wishlist>> getAllWishlists() {
+		List<Wishlist> wishlists = wishlistService.getAllWishlists();
+		return ResponseEntity.ok(wishlists);
 	}
 
+	// Get a wishlist by ID
 	@GetMapping("/{id}")
 	public ResponseEntity<Wishlist> getWishlistById(@PathVariable Long id) {
 		Optional<Wishlist> wishlist = wishlistService.getWishlistById(id);
 		return wishlist.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 
+	// Update an existing wishlist
 	@PutMapping("/{id}")
 	public ResponseEntity<Wishlist> updateWishlist(@PathVariable Long id, @RequestBody Wishlist updatedWishlist) {
 		Optional<Wishlist> existing = wishlistService.getWishlistById(id);
 		if (existing.isPresent()) {
-			updatedWishlist.setWishlistID(id);
-			return ResponseEntity.ok(wishlistService.saveWishlist(updatedWishlist));
+			updatedWishlist.setWishlistId(id);
+			Wishlist savedWishlist = wishlistService.saveWishlist(updatedWishlist);
+			return ResponseEntity.ok(savedWishlist);
 		} else {
 			return ResponseEntity.notFound().build();
 		}
 	}
 
+	// Delete a wishlist by ID
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteWishlist(@PathVariable Long id) {
 		if (wishlistService.getWishlistById(id).isPresent()) {

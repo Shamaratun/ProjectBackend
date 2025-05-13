@@ -18,26 +18,18 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Review")
+@Table(name = "T_Review")
 public class Review {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ReviewID")
-	private Long reviewID;
-
-//	@ManyToOne
-//	@JoinColumn(name = "UserId", nullable = false)
-//	private User user;
-//
-//	@ManyToOne
-//	@JoinColumn(name = "BookId", nullable = false)
-//	private Books book;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ReviewId")
+	private Long reviewId;
 
 	@Column(name = "Rating")
 	private Integer rating;
 
-	@Column(name = "Comment", columnDefinition = "TEXT")
+	@Column(name = "comments")
 	private String comment;
 
 	@Column(name = "ReviewDate")

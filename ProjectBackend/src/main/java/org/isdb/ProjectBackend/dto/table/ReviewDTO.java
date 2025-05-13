@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReviewDTO {
-	private Long reviewID;
-	private Long id;
-	private Integer bookID;
+	private Long reviewId;
+	private Long Id;
+	private Integer bookId;
 	private Integer rating;
 	private String comment;
 	private LocalDateTime reviewDate;

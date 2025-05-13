@@ -23,8 +23,8 @@ import lombok.Setter;
 public class Author {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // Only for authorid
-	private Long authorID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Only for authorId
+	private Long authorId;
 
 	@Column(nullable = false, length = 100)
 	private String name;

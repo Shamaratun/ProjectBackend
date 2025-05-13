@@ -45,7 +45,7 @@ public class OrderController {
 	public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order updatedOrder) {
 		Optional<Order> existingOrder = orderService.getOrderById(id);
 		if (existingOrder.isPresent()) {
-			updatedOrder.setOrderID(id); // Ensure the ID is set correctly
+			updatedOrder.setOrderId(id); // Ensure the ID is set correctly
 			return ResponseEntity.ok(orderService.saveOrder(updatedOrder));
 		} else {
 			return ResponseEntity.notFound().build();

@@ -27,15 +27,15 @@ public class CartItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long cartItemID;
+	private Long cartItemId;
 
 	@ManyToOne
-	@JoinColumn(name = "cartID", nullable = false)
+	@JoinColumn(name = "cartId", nullable = false)
 	@JsonBackReference
 	private Cart cart;
 
 	@ManyToOne
-	@JoinColumn(name = "bookID", nullable = false)
+	@JoinColumn(name = "bookId", nullable = false)
 	@JsonBackReference
 	private Books book;
 

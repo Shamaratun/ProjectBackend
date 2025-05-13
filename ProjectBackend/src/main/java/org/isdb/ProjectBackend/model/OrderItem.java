@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,17 +23,17 @@ import lombok.Setter;
 public class OrderItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long orderItemID;
+	private Long orderItemId;
 
 	private Integer quantity;
 
 	private BigDecimal price;
-//
-//	@ManyToOne
-//	@JoinColumn(name = "orderID")
-//	private Order order;
-//
-//	@ManyToOne
-//	@JoinColumn(name = "bookID")
-//	private Books book;
+
+	@ManyToOne
+	@JoinColumn(name = "orderId")
+	private Order order;
+
+	@ManyToOne
+	@JoinColumn(name = "bookId")
+	private Books book;
 }

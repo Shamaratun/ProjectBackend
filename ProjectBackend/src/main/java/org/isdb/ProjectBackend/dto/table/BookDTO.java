@@ -36,10 +36,10 @@ public class BookDTO {
 	private Timestamp updatedAt;
 
 	@ManyToOne
-	@JoinColumn(name = "authorID")
+	@JoinColumn(name = "authorId")
 	private Author author;
 
 	@ManyToOne
-	@JoinColumn(name = "warehouseID")
+	@JoinColumn(name = "warehouseId")
 	private Warehouse warehouse;
 }

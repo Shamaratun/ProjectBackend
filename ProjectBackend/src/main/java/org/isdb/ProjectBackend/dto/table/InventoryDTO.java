@@ -13,9 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class InventoryDTO {
 
-	private Long inventoryID;
+	private Long inventoryId;
 	private Integer quantity;
 	private LocalDateTime lastUpdated;
-	private Long bookID; // Only send book ID, not the full Book entity
-	private Long warehouseID;
+	private Long bookId; // Only send book Id, not the full Book entity
+	private Long warehouseId;
 }

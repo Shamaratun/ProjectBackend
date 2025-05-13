@@ -1,10 +1,13 @@
 package org.isdb.ProjectBackend.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,19 +23,19 @@ import lombok.Setter;
 public class Warehouse {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long warehouseID;
+	private Long warehouseId;
 
 	@Column(nullable = false, length = 100)
 	private String location;
 
 	private Integer stockLevel;
 
-//	@OneToMany(mappedBy = "warehouse")
-//
-//	private List<Books> books;
-//
-//	@OneToMany(mappedBy = "warehouse")
-//
-//	private List<Inventory> inventories;
+	@OneToMany(mappedBy = "warehouse")
+
+	private List<Books> books;
+
+	@OneToMany(mappedBy = "warehouse")
+
+	private List<Inventory> inventories;
 
 }

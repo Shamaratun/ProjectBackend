@@ -3,6 +3,7 @@ package org.isdb.ProjectBackend.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -13,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,8 +31,8 @@ import lombok.Setter;
 public class Books implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "BookID") // Match Oracle column name here
-	private Long bookID;
+	@Column(name = "BookId") // Match Oracle column name here
+	private Long bookId;
 
 	private String title;
 	private String isbn;
@@ -44,13 +46,15 @@ public class Books implements Serializable {
 	private LocalDateTime updatedAt;
 
 	@ManyToOne
-	@JoinColumn(name = "author_id")
+	@JoinColumn(name = "author_Id")
 	@JsonBackReference
 	private Author author;
 
 	@ManyToOne
-	@JoinColumn(name = "warehouseID", referencedColumnName = "warehouseID", nullable = false)
+	@JoinColumn(name = "warehouseId", referencedColumnName = "warehouseId", nullable = false)
 	private Warehouse warehouse;
 
-	// Relationships (mappedBy should be added in the other classes)
+	@OneToMany
+	private List<Review> reviews;
+
 }

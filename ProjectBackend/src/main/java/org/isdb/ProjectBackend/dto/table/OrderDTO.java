@@ -8,13 +8,13 @@ import lombok.Data;
 
 @Data
 public class OrderDTO {
-	private Long orderID;
+	private Long orderId;
 	private LocalDateTime orderDate;
 	private String status;
 	private BigDecimal totalAmount;
-	private Integer userID;
-	private Integer discountID;
-	private Integer paymentID;
-	private Integer shippingID;
-	private List<Integer> orderItemIDs;
+	private Integer userId;
+	private Integer discountId;
+	private Integer paymentId;
+	private Integer shippingId;
+	private List<Integer> orderItemIds;
 }
