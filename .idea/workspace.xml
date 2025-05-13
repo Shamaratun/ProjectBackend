@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/dto/table/InventoryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="01:48  warehouse need to be corrected" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,9 +92,20 @@
       <option name="presentableId" value="Default" />
       <updated>1746423984070</updated>
     </task>
+    <task id="LOCAL-00001" summary="01:48  warehouse need to be corrected">
+      <option name="closed" value="true" />
+      <created>1747108683032</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747108683032</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="need correction" />
+    <MESSAGE value="01:48  warehouse need to be corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="01:48  warehouse need to be corrected" />
   </component>
 </project>
