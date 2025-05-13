@@ -3,6 +3,8 @@ package org.isdb.ProjectBackend.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,10 +28,11 @@ public class Cart {
 
 	private LocalDateTime createdDate;
 
-	private	String status;
+	private String status;
 
 	@ManyToOne
 	@JoinColumn(name = "id")
+	@JsonBackReference
 	private User user;
 
 	@OneToMany(mappedBy = "cart")

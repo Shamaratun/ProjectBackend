@@ -7,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,13 +26,13 @@ public class Review {
 	@Column(name = "ReviewID")
 	private Long reviewID;
 
-	@ManyToOne
-	@JoinColumn(name = "UserId", nullable = false)
-	private User user;
-
-	@ManyToOne
-	@JoinColumn(name = "BookId", nullable = false)
-	private Books book;
+//	@ManyToOne
+//	@JoinColumn(name = "UserId", nullable = false)
+//	private User user;
+//
+//	@ManyToOne
+//	@JoinColumn(name = "BookId", nullable = false)
+//	private Books book;
 
 	@Column(name = "Rating")
 	private Integer rating;

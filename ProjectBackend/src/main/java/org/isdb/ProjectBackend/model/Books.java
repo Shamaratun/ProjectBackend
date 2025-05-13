@@ -49,7 +49,7 @@ public class Books implements Serializable {
 	private Author author;
 
 	@ManyToOne
-	@JoinColumn(name = "warehouseID",referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "warehouseID", referencedColumnName = "warehouseID", nullable = false)
 	private Warehouse warehouse;
 
 	// Relationships (mappedBy should be added in the other classes)

@@ -1,14 +1,10 @@
 package org.isdb.ProjectBackend.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,12 +27,12 @@ public class Warehouse {
 
 	private Integer stockLevel;
 
-	@OneToMany(mappedBy = "warehouse")
-	@JoinColumn(name = "bookID", nullable = false)
-	private List<Books> books;
-
-	@OneToMany(mappedBy = "warehouse")
-	@JoinColumn(name = "inventoryID", nullable = false)
-	private List<Inventory> inventories;
+//	@OneToMany(mappedBy = "warehouse")
+//
+//	private List<Books> books;
+//
+//	@OneToMany(mappedBy = "warehouse")
+//
+//	private List<Inventory> inventories;
 
 }

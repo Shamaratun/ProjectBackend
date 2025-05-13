@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="01:48  warehouse need to be corrected" />
+    <list default="true" id="fda7925a-3f2c-4615-94ae-f068fbaa1f74" name="Changes" comment="01:48  warehouse need to be corrected">
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Books.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Discount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Shipping.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Shipping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/Wishlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/WishlistItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectBackend/src/main/java/org/isdb/ProjectBackend/model/WishlistItem.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
