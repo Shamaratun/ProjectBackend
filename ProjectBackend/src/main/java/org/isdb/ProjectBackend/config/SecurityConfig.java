@@ -40,8 +40,9 @@ public class SecurityConfig {
 			throws Exception {
 		http.cors(Customizer.withDefaults()).csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/**").permitAll()
-						.requestMatchers("/api/public/**").permitAll().requestMatchers("/api/books/**").permitAll()
-						.requestMatchers("/api/user/**").hasAnyRole("VIEWER", "CUSTOMER", "ADMIN")
+						.requestMatchers("/api/warehouses/**").permitAll().requestMatchers("/api/authors/**")
+						.permitAll().requestMatchers("/api/public/**").permitAll().requestMatchers("/api/books/**")
+						.permitAll().requestMatchers("/api/user/**").hasAnyRole("VIEWER", "CUSTOMER", "ADMIN")
 						.requestMatchers("/api/customer/**").hasAnyRole("CUSTOMER", "VIEWER")
 						.requestMatchers("/api/admin/**").hasRole("ADMIN").anyRequest().authenticated())
 				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

@@ -27,7 +27,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "M-Books")
+@Table(name = "M_Books")
 public class Books implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

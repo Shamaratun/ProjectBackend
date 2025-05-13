@@ -24,7 +24,6 @@ import lombok.Setter;
 public class Inventory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	private Long inventoryId;
 
 	private Integer quantity;
