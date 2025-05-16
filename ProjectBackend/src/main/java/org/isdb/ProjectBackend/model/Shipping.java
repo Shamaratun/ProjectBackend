@@ -27,6 +27,10 @@ public class Shipping {
 
 	private Long shippingId;
 	@Column(nullable = false, length = 100)
+	private String name;
+	@Column(nullable = false, length = 100)
+	private String phone;
+	@Column(nullable = false, length = 100)
 	private String address;
 	@Column(nullable = false, length = 100)
 	private String city;
