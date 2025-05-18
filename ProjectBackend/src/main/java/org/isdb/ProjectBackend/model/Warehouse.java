@@ -2,6 +2,8 @@ package org.isdb.ProjectBackend.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,11 +33,11 @@ public class Warehouse {
 	private Integer stockLevel;
 
 	@OneToMany(mappedBy = "warehouse")
-
+	@JsonManagedReference(value = "book-warehouse")
 	private List<Books> books;
 
 	@OneToMany(mappedBy = "warehouse")
-
+	@JsonManagedReference(value = "inventory-warehouse")
 	private List<Inventory> inventories;
 
 }

@@ -1,13 +1,12 @@
 package org.isdb.ProjectBackend.model;
+
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,7 +28,7 @@ public class Author {
 	@Column(nullable = false, length = 100)
 	private String name;
 
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 500)
 	private String bio;
 
 	@Column(nullable = false, length = 100)
@@ -38,7 +37,7 @@ public class Author {
 	@Column(nullable = false, length = 100)
 	private Date dob;
 
-	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonIgnore // Prevent serialization issues
+	@OneToMany(mappedBy = "author")
+	@JsonManagedReference(value = "book-author")
 	private List<Books> books;
 }

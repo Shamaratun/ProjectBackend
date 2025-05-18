@@ -1,12 +1,13 @@
 
 package org.isdb.ProjectBackend.model;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,10 +29,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "M_Books")
-public class Books implements Serializable {
+public class Books {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "BookId") // Match Oracle column name here
+	@Column(name = "BookId")
 	private Long bookId;
 
 	private String title;
@@ -47,14 +48,16 @@ public class Books implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "author_Id")
-	@JsonBackReference
+	@JsonBackReference(value = "book-author")
 	private Author author;
 
 	@ManyToOne
-	@JoinColumn(name = "warehouseId", referencedColumnName = "warehouseId", nullable = false)
+	@JoinColumn(name = "warehouse_Id")
+	@JsonBackReference(value = "book-warehouse")
 	private Warehouse warehouse;
 
-	@OneToMany
+	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference(value = "book-review")
 	private List<Review> reviews;
 
 }

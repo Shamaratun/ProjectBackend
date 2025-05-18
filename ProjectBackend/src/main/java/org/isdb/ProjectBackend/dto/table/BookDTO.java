@@ -3,12 +3,7 @@ package org.isdb.ProjectBackend.dto.table;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-import org.isdb.ProjectBackend.model.Author;
-import org.isdb.ProjectBackend.model.Warehouse;
-
 import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,28 +13,30 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class BookDTO {
 
-	private String title;
-	private String isbn;
-	private BigDecimal price;
-	private Integer stock;
-	private String image;
-	private String genre;
-	private BigDecimal rating;
+	public String title;
+	public String isbn;
+
+	public Integer stock;
+	public String image;
+	public String genre;
 
 	@Column(name = "created_at")
-	private Timestamp createdAt;
+	public Timestamp createdAt;
 
 	@Column(name = "updated_at")
-	private Timestamp updatedAt;
+	public Timestamp updatedAt;
 
-	@ManyToOne
-	@JoinColumn(name = "authorId")
-	private Author author;
-
-	@ManyToOne
-	@JoinColumn(name = "warehouseId")
-	private Warehouse warehouse;
+	public Long authorId;
+	public Long warehouseId;
+	public BigDecimal price;
+	public BigDecimal rating;
+//	@ManyToOne
+//	@JoinColumn(name = "authorId")
+//	private Author author;
+//
+//	@ManyToOne
+//	@JoinColumn(name = "warehouseId")
+//	private Warehouse warehouse;
 }

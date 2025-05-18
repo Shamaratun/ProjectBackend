@@ -57,7 +57,8 @@
         </dependency>
 
         <!-- H2 DB (optional for testing or dev) -->
-     
+     <!-- for Maven -->
+
 
         <!-- JWT dependencies -->
         <dependency>

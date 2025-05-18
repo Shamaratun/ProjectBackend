@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,5 +39,6 @@ public class Discount {
 	private String criteria;
 
 	@OneToMany(mappedBy = "discount")
+	@JsonManagedReference
 	private List<Order> orders;
 }

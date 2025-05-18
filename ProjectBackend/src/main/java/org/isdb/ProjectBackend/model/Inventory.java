@@ -2,6 +2,8 @@ package org.isdb.ProjectBackend.model;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,9 +35,11 @@ public class Inventory {
 
 	@ManyToOne
 	@JoinColumn(name = "bookId")
+	@JsonBackReference(value = "inventory-book")
 	private Books book;
 
 	@ManyToOne
 	@JoinColumn(name = "warehouseId")
+	@JsonBackReference(value = "inventory-warehouse")
 	private Warehouse warehouse;
 }
