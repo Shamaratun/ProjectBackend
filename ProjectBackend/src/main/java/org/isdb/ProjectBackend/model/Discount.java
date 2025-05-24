@@ -1,17 +1,14 @@
 package org.isdb.ProjectBackend.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,24 +18,24 @@ import lombok.Setter;
 @Entity
 @Table(name = "Discount")
 public class Discount {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long discountId;
-	@Column(nullable = false, length = 100)
+
+	@Column(nullable = true, length = 100)
 	private String name;
+
 	@Column(nullable = false, length = 100)
 	private String description;
 
+	@Column(nullable = true)
 	private BigDecimal discountPercentage;
 
-	private LocalDate startDate;
-
-	private LocalDate endDate;
-
-	@Column(nullable = false, length = 100)
+	@Column(nullable = true, length = 100)
 	private String criteria;
 
-	@OneToMany(mappedBy = "discount")
-	@JsonManagedReference
-	private List<Order> orders;
+	@OneToOne
+	@JoinColumn(name = "book_id", nullable = false)
+	private Books book;
 }

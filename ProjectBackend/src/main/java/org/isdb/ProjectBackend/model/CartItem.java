@@ -41,7 +41,7 @@ public class CartItem {
 
 	private Integer quantity;
 
-	private BigDecimal price;
+	private BigDecimal priceAt;
 
 	private LocalDateTime addedAt;
 }

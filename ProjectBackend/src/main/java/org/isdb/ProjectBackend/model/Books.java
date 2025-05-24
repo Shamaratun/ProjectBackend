@@ -36,12 +36,15 @@ public class Books {
 	private Long bookId;
 
 	private String title;
+	private String authorName;
+
 	private String isbn;
 	private Double price;
 	private Integer stock;
 	private String image;
 	private String genre;
 	private Double rating;
+	private String warehouseLocation;
 
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;

@@ -2,7 +2,6 @@
 package org.isdb.ProjectBackend.dto.table;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,9 +16,10 @@ import lombok.Setter;
 public class CartItemDTO {
 
 	private Long cartItemId;
-	private Long cartId;
-	private Long bookId;
+	private String cart;
+	private String title;
+	private String authorName;
 	private Integer quantity;
-	private BigDecimal price;
-	private LocalDateTime addedAt;
+	private BigDecimal priceAt;
+
 }

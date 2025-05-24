@@ -16,9 +16,10 @@ import lombok.Setter;
 public class BookDTO {
 
 	public String title;
-	public String isbn;
+	public String authoName;
+	public Integer isbn;
+	public String warehouseLocation;
 
-	public Integer stock;
 	public String image;
 	public String genre;
 
@@ -30,6 +31,7 @@ public class BookDTO {
 
 	public Long authorId;
 	public Long warehouseId;
+	public Integer stock;
 	public BigDecimal price;
 	public BigDecimal rating;
 //	@ManyToOne
